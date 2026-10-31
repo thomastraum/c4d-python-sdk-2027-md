@@ -1,0 +1,59 @@
+<!-- Source: https://developers.maxon.net/docs/py/2027_0_0/examples/io/texture_paths.py.html -->
+
+Local source: [examples/io/texture_paths.py](../../../examples/io/texture_paths.py)
+
+# texture_paths <a id="texture-paths"></a>
+
+Sets and gets global texture paths (Preferences->Files->Paths).
+
+## texture_paths.py <a id="texture-paths-py"></a>
+
+```python
+"""Sets and gets global texture paths (Preferences->Files->Paths).
+
+Topics:
+    * c4d.SetGlobalTexturePaths()
+    * c4d.GetGlobalTexturePaths()
+"""
+__author__ = "Maxime Adam"
+__copyright__ = "Copyright (C) 2026 MAXON Computer GmbH"
+__license__ = "Apache-2.0 License"
+__version__ = "R20"
+
+import c4d
+import os
+
+def main():
+    # Gets desktop and home paths
+    desktopPath = c4d.storage.GeGetC4DPath(c4d.C4D_PATH_DESKTOP)
+    homePath = c4d.storage.GeGetC4DPath(c4d.C4D_PATH_HOME)
+
+    # Gets global texture paths
+    paths = c4d.GetGlobalTexturePaths()
+
+    # Checks if the paths already exist in the global paths
+    desktopPathFound = False
+    homePathFound = False
+    for path, enabled in paths:
+        if os.path.normpath(path) == os.path.normpath(desktopPath):
+            desktopPathFound = True
+
+        if os.path.normpath(path) == os.path.normpath(homePath):
+            homePathFound = True
+
+    # If paths are not found then add them to the global paths
+    if not desktopPathFound:
+        paths.append([desktopPath, True])
+
+    if not homePathFound:
+        paths.append([homePath, True])
+
+    # Sets global texture paths
+    c4d.SetGlobalTexturePaths(paths)
+
+    # Prints global texture paths
+    print(c4d.GetGlobalTexturePaths())
+
+if __name__ == '__main__':
+    main()
+```

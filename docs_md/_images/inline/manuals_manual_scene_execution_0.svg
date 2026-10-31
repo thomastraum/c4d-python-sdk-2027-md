@@ -1,0 +1,84 @@
+<svg class="uc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 350" role="img" aria-labelledby="uc-title uc-desc" style="width:100%;height:auto;max-width:960px;display:block;margin:0 auto">
+<title id="uc-title">The update cycle of a scene</title>
+<desc id="uc-desc">A trigger such as a user edit, EventAdd or an animation playback tick is processed by the main thread event loop, which cancels a running update and runs the pre-pass. The executing thread then executes the collected elements, runs the post-pass and draws the viewports. The result is shown and managers are notified.</desc>
+<style>
+.uc{color:var(--color-text,#4d4d4d);font-family:var(--font-family-sans,'Roboto',Arial,sans-serif);font-size:12px}
+.uc text{fill:currentColor}
+.uc .t{font-weight:500;font-size:13px}
+.uc .l{font-weight:500;font-size:14px}
+.uc .s{font-size:11px;opacity:.85}
+.uc .n{font-size:11px;opacity:.7}
+.uc .line{fill:none;stroke:currentColor;stroke-opacity:.55;stroke-width:1.5}
+.uc .lane{fill:currentColor;fill-opacity:.04;stroke:currentColor;stroke-opacity:.3}
+.uc .box{fill:currentColor;fill-opacity:.07;stroke:currentColor;stroke-opacity:.4}
+.uc .main{fill:hsl(150 60% 45% / .16);stroke:hsl(150 50% 45%)}
+.uc .thr{fill:hsl(35 85% 55% / .18);stroke:hsl(35 80% 50%)}
+</style>
+<defs>
+<marker id="uc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".65"/></marker>
+</defs>
+
+<!-- Main thread lane -->
+<rect class="lane" x="20" y="16" width="920" height="132" rx="10"/>
+<text class="l" x="36" y="38">Main thread</text>
+
+<rect class="box" x="36" y="56" width="150" height="76" rx="8"/>
+<text class="t" x="111" y="78" text-anchor="middle">Trigger</text>
+<text class="s" x="111" y="96" text-anchor="middle">User edit, script,</text>
+<text class="s" x="111" y="110" text-anchor="middle">EventAdd(), or an</text>
+<text class="s" x="111" y="124" text-anchor="middle">animation tick</text>
+
+<rect class="main" x="216" y="56" width="190" height="76" rx="8"/>
+<text class="t" x="311" y="78" text-anchor="middle">1  Event loop</text>
+<text class="s" x="311" y="96" text-anchor="middle">Merge pending events,</text>
+<text class="s" x="311" y="110" text-anchor="middle">refresh managers, cancel</text>
+<text class="s" x="311" y="124" text-anchor="middle">a still running update</text>
+
+<rect class="main" x="436" y="56" width="190" height="76" rx="8"/>
+<text class="t" x="531" y="78" text-anchor="middle">2  Pre-pass</text>
+<text class="s" x="531" y="96" text-anchor="middle">Collect all elements that</text>
+<text class="s" x="531" y="110" text-anchor="middle">must run, and at which</text>
+<text class="s" x="531" y="124" text-anchor="middle">priority</text>
+
+<rect class="main" x="736" y="56" width="188" height="76" rx="8"/>
+<text class="t" x="830" y="78" text-anchor="middle">6  Done</text>
+<text class="s" x="830" y="96" text-anchor="middle">The result is displayed,</text>
+<text class="s" x="830" y="110" text-anchor="middle">managers and plugins</text>
+<text class="s" x="830" y="124" text-anchor="middle">are notified</text>
+
+<path class="line" d="M188 94H212" marker-end="url(#uc-arrow)"/>
+<path class="line" d="M408 94H432" marker-end="url(#uc-arrow)"/>
+
+<!-- Execution lane -->
+<rect class="lane" x="20" y="196" width="920" height="132" rx="10"/>
+<text class="l" x="36" y="218">Executing thread</text>
+<text class="n" x="160" y="218">(the thread that runs the update: a background thread, the main thread during playback, or the caller of ExecutePasses())</text>
+
+<rect class="thr" x="436" y="240" width="190" height="76" rx="8"/>
+<text class="t" x="531" y="262" text-anchor="middle">3  Execute</text>
+<text class="s" x="531" y="280" text-anchor="middle">Animation, expressions,</text>
+<text class="s" x="531" y="294" text-anchor="middle">dynamics, then caches of</text>
+<text class="s" x="531" y="308" text-anchor="middle">generators and deformers</text>
+
+<rect class="thr" x="656" y="240" width="120" height="76" rx="8"/>
+<text class="t" x="716" y="262" text-anchor="middle">4  Post-pass</text>
+<text class="s" x="716" y="280" text-anchor="middle">Final scene</text>
+<text class="s" x="716" y="294" text-anchor="middle">preparation</text>
+
+<rect class="thr" x="806" y="240" width="118" height="76" rx="8"/>
+<text class="t" x="865" y="262" text-anchor="middle">5  Draw</text>
+<text class="s" x="865" y="280" text-anchor="middle">Every viewport,</text>
+<text class="s" x="865" y="294" text-anchor="middle">Draw() callbacks</text>
+
+<text class="s" x="36" y="262">Execution and drawing run</text>
+<text class="s" x="36" y="278">as one job, so a Draw()</text>
+<text class="s" x="36" y="294">callback sees the result of</text>
+<text class="s" x="36" y="310">the execute step directly.</text>
+
+<path class="line" d="M531 134V238" marker-end="url(#uc-arrow)"/>
+<text class="n" x="543" y="176">start job</text>
+<path class="line" d="M628 278H652" marker-end="url(#uc-arrow)"/>
+<path class="line" d="M778 278H802" marker-end="url(#uc-arrow)"/>
+<path class="line" d="M865 238V134" marker-end="url(#uc-arrow)"/>
+<text class="n" x="877" y="176">finished</text>
+</svg>

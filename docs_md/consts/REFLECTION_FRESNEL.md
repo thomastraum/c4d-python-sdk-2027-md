@@ -1,0 +1,9 @@
+<!-- Source: https://developers.maxon.net/docs/py/2027_0_0/consts/REFLECTION_FRESNEL.html -->
+
+# REFLECTION FRESNEL <a id="reflection-fresnel"></a>
+
+|   |   |
+|---|---|
+| *REFLECTION_FRESNEL_NONE* | None. |
+| *REFLECTION_FRESNEL_DIELECTRIC* | Dielectric. See [REFLECTION FRESNEL DIELECTRIC](REFLECTION_FRESNEL_DIELECTRIC.md) |
+| *REFLECTION_FRESNEL_CONDUCTOR* | Conductor. See [REFLECTION FRESNEL METAL](REFLECTION_FRESNEL_METAL.md) |

@@ -1,0 +1,77 @@
+# Cinema 4D Python SDK 2027.0.0
+
+> Python API of Maxon Cinema 4D: the `c4d` (Cinema API), `maxon` (Maxon API), and `mxutils` packages, with manuals, constant tables, and runnable examples. This repository holds the official SDK download with its HTML documentation converted to Markdown in `docs_md/`.
+
+How to use this repository:
+
+- Look up any class, method, function, constant (`c4d.COPYFLAGS_NO_HIERARCHY`), type id (`c4d.Osphere`), description resource (`Osphere`), or description parameter (`PRIM_SPHERE_RAD`) by name in [docs_md/symbols.tsv](docs_md/symbols.tsv). Columns: name, role, path#anchor relative to the SDK root, title. Grep it, it is too large to read whole.
+- Markdown pages mirror the online documentation paths; `<a id="..."></a>` tags keep the original Sphinx anchors, so `#c4d.BaseObject.GetMg` style fragments resolve.
+- Description parameter ids of objects, tags, and materials are in [.agents/descriptions](.agents/descriptions/_overview.md); node space ports are in [.agents/nodespaces](.agents/nodespaces/_overview.md).
+- Example source code lives in [examples/](examples/); coding rules for agents are in [AGENTS.md](AGENTS.md).
+
+## Indexes
+
+- [Documentation index](docs_md/INDEX.md): all sections with page counts
+- [Documentation start page](docs_md/index.md)
+- [What's new](docs_md/indexes/whatisnew.md): changes in this release
+- [Symbol table](docs_md/symbols.tsv): API symbols, constants, type ids, and description parameters mapped to their files
+
+## Manuals
+
+- [Manuals](docs_md/manuals/index.md): Browse guides for Cinema 4D Python scripting and plugin development.
+- [API Overview](docs_md/manuals/manual_api_overview.md): Provides an overview of the major API components.
+- [Assets](docs_md/manuals/manual_assets.md): Provide content as reusable assets served with the Cinema 4D Asset Browser.
+- [Debugging](docs_md/manuals/manual_debugging.md): Explains how to find errors in Python code for Cinema 4D with the mxutils debug tools, and how to track down crashes caused by threading violations.
+- [External Libraries](docs_md/manuals/manual_external_libraries.md): Explains how to expose third-party libraries to Cinema 4D Python.
+- [Geometry Model](docs_md/manuals/manual_geometry.md): Explains the geometry model of Cinema 4D: polygons, edges, normals, caches, and splines.
+- [Graph Descriptions](docs_md/manuals/manual_graph_descriptions.md): Explains how to generate node materials with graph descriptions.
+- [Implementing Plugins](docs_md/manuals/manual_implementing_plugins.md): Explains the basic concepts of implementing plugins.
+- [Input Events](docs_md/manuals/manual_input_events.md): Input events are messages about input from the keyboard or from the mouse.
+- [Licensing](docs_md/manuals/manual_licensing.md): Explains licensing for Python plugins in Cinema 4D.
+- [Matrices](docs_md/manuals/manual_matrices.md): Explains how to carry out transform operations.
+- [Message System](docs_md/manuals/manual_message_system.md): Explains messages between Cinema 4D scene elements and interfaces.
+- [Python Environment](docs_md/manuals/manual_python_environment.md): Explains the features and limitations of Cinema 4D’s Python runtime.
+- [Quickstart](docs_md/manuals/manual_quickstart.md): Learn the basics of using the Cinema 4D Python API.
+- [Dialog and Description Resources](docs_md/manuals/manual_resource_files.md): Explains how to define dialogs and node parameters with resource files, and how to use them from Python.
+- [Scene Execution](docs_md/manuals/manual_scene_execution.md): Explains how Cinema 4D updates a scene, and where Python code runs in that process.
+- [Scene Structure](docs_md/manuals/manual_scene_structure.md): Explains how a Cinema 4D scene is organized with hierarchies and branches, and how to traverse it.
+- [Script Manager and Console](docs_md/manuals/manual_script_manager.md): Write and run scripts in the Script Manager and inspect results in the Python Console.
+- [Scripting Elements](docs_md/manuals/manual_scripting_elements.md): Explains Python scripting elements embedded in Cinema 4D scenes.
+- [Standalone Interpreter](docs_md/manuals/manual_standalone_interpreter.md): Explains how to use Cinema 4D’s standalone interpreter, c4dpy.
+- [Style Guide](docs_md/manuals/manual_style_guide.md): Explains the code style and conventions used in this SDK.
+- [Symbol Parsing](docs_md/manuals/manual_symbol_parsing.md): Explains resource symbols and mxutils.ImportSymbols.
+- [Vectors](docs_md/manuals/manual_vectors.md): Explains how to carry out vector operations.
+- [Working with the SDK](docs_md/manuals/manual_working_with_sdk.md): Set up Visual Studio Code to work with the Cinema 4D Python SDK.
+
+## API Reference
+
+- [c4d.bitmaps](docs_md/modules/c4d.bitmaps/index.md): Classes: MultipassBitmap, BaseBitmap, ColorProfile, ColorProfileConvert, GeClipMap, MovieLoader, MovieSaver
+- [c4d.documents](docs_md/modules/c4d.documents/index.md): Classes: BaseDocument, BaseVideoPost, BatchRender, LayerObject, RenderData
+- [c4d.gui](docs_md/modules/c4d.gui/index.md): Classes: BitmapButtonCustomGui, DateTimeControl, DescriptionCustomGui, FontChooserCustomGui, GradientCustomGui, HtmlViewerCustomGui, HyperLinkCustomGui, InExcludeCustomGui, LinkBoxGui, QuickTabCustomGui, RangeCustomGui, SoundEffectorCustomGui, SplineCustomGui, TreeViewCustomGui, BaseCustomGui, C4DGadget, …
+- [c4d.modules](docs_md/modules/c4d.modules/index.md): Classes: PaintLayerBmp, PaintLayerFolder, PaintLayerMask, PaintLayer, PaintMaterial, PaintTexture, PaintBitmap, TempUVHandle, bodypaint, CAJointObject, CAMorph, CAMorphNode, CAPoseMorphTag, CAReferencePSD, CAWeightMgr, CAWeightTag, …
+- [c4d.plugins](docs_md/modules/c4d.plugins/index.md): Provides classes to implement and functions to register plugins.
+- [c4d.storage](docs_md/modules/c4d.storage/index.md): Classes: HyperFile, MemoryFileStruct
+- [c4d.threading](docs_md/modules/c4d.threading/index.md): Classes: BaseThread, C4DThread
+- [c4d.utils](docs_md/modules/c4d.utils/index.md): Classes: ConvexHullDecomposition, GeRayCollider, KDTree, KDTreeQuery, Neighbor, PolygonReduction, SplineHelp, SplineLengthData, ViewportSelect, C4DNoise, noise
+- [c4d](docs_md/modules/c4d/index.md): An overview of not all but important types in the c4d module.
+- [Cinema API](docs_md/modules/cinema_api.md)
+- [Maxon API](docs_md/modules/maxon/maxon_api.md)
+- [mxutils API](docs_md/modules/mxutils_api.md): Contains helper functions and types that are written in Python and exclusive to the Python API.
+
+## Agent Guides
+
+- [Assets Documentation](.agents/assets.md)
+- [Debugging Documentation](.agents/debug.md)
+- [Nodes Documentation](.agents/nodes.md)
+- [Scaffolds Documentation](.agents/scaffolds.md)
+- [Scene Documentation](.agents/scene.md)
+
+## Optional
+
+- [Manuals](docs_md/index/manuals.md): Conceptual guides: quickstart, scene structure, plugins, resources.
+- [Cinema API Reference](docs_md/index/cinema_api.md): Modules, classes, and functions of `c4d` and `mxutils`.
+- [Maxon API Reference](docs_md/index/maxon_api.md): Frameworks, interfaces, data types, and enums of the `maxon` package.
+- [Type Indexes](docs_md/index/types.md): Object, tag, shader, material, track, and field type ids.
+- [Constants](docs_md/index/consts.md): Enumerations and symbol groups such as `COPYFLAGS` or `DIRTYFLAGS`.
+- [Examples](docs_md/index/examples.md): Annotated example scripts and plugins of the SDK.
+- [Other Indexes](docs_md/index/indexes.md): What's new, example index, type index, resource index.

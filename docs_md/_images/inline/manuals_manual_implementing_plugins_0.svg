@@ -1,0 +1,142 @@
+<svg class="nh" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="nh-title nh-desc" style="width:100%;height:auto;max-width:960px;display:block;margin:0 auto">
+<title id="nh-title">The two layers of a node plugin</title>
+<desc id="nh-desc">The scene layer, driven by Cinema 4D, contains the document tree with nodes: two BaseObject nodes and a BaseTag with a Python hook, and a plain Cube without one. The implementation layer, provided by the plugin, contains one class MyObjectData registered once with one instance per object node, and one class MyTagData with one instance for the tag. Each node reaches its instance with GetNodeData. Cinema 4D passes the node into the callbacks of the instance, for example Init and GetVirtualObjects.</desc>
+<style>
+.nh{color:var(--color-text,#4d4d4d);font-family:var(--font-family-sans,'Roboto',Arial,sans-serif);font-size:12px}
+.nh text{fill:currentColor}
+.nh .t{font-weight:500;font-size:13px}
+.nh .h{font-weight:600;font-size:15px}
+.nh .s{font-size:11px}
+.nh .n{font-size:11px;opacity:.7}
+.nh .m{font-family:var(--font-family-mono,Consolas,'Courier New',monospace);font-size:11px}
+.nh text.b{fill:hsl(215 65% 55%)}
+.nh text.g{fill:hsl(150 55% 42%)}
+.nh .line{fill:none;stroke:currentColor;stroke-opacity:.5;stroke-width:1.3}
+.nh .own{fill:none;stroke:hsl(35 80% 50%);stroke-width:1.6}
+.nh .pscene{fill:hsl(215 70% 55% / .06);stroke:hsl(215 60% 55% / .55);stroke-width:1.3}
+.nh .pimpl{fill:hsl(150 60% 45% / .06);stroke:hsl(150 50% 45% / .55);stroke-width:1.3}
+.nh .doc{fill:hsl(215 70% 55% / .18);stroke:hsl(215 60% 55%)}
+.nh .head{fill:hsl(35 85% 55% / .2);stroke:hsl(35 80% 50%)}
+.nh .card{fill:currentColor;fill-opacity:.05;stroke:currentColor;stroke-opacity:.4}
+.nh .plain{fill:currentColor;fill-opacity:.03;stroke:currentColor;stroke-opacity:.3}
+.nh .hs{fill:hsl(215 70% 55% / .2);stroke:hsl(215 60% 55%)}
+.nh .hi{fill:hsl(150 60% 45% / .2);stroke:hsl(150 50% 45%)}
+.nh .cls{fill:none;stroke:hsl(150 50% 45%);stroke-width:1.3;stroke-dasharray:5 4}
+.nh .tonode{fill:none;stroke:hsl(215 60% 55%);stroke-width:1.8}
+.nh .tohook{fill:none;stroke:hsl(150 50% 45%);stroke-width:1.8}
+</style>
+<defs>
+<marker id="nh-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="hsl(215 60% 55%)"/></marker>
+<marker id="nh-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="hsl(150 50% 45%)"/></marker>
+</defs>
+
+<!-- The two layers -->
+<rect class="pscene" x="16" y="16" width="376" height="462" rx="10"/>
+<text class="h" x="32" y="42">Scene layer</text>
+<text class="n" x="32" y="58">Nodes of the document. Cinema 4D drives them, you use the node API.</text>
+<rect class="pimpl" x="568" y="16" width="376" height="462" rx="10"/>
+<text class="h" x="584" y="42">Implementation layer</text>
+<text class="n" x="584" y="58">Your hook classes. You decide what a node does.</text>
+<text class="n" x="480" y="120" text-anchor="middle">one node,</text>
+<text class="n" x="480" y="133" text-anchor="middle">one instance</text>
+
+<!-- Scene layer: a small document tree -->
+<rect class="doc" x="32" y="72" width="130" height="24" rx="6"/>
+<text class="s" x="97" y="88" text-anchor="middle">BaseDocument</text>
+<path class="own" d="M47 96V117H52"/>
+<rect class="head" x="52" y="106" width="110" height="22" rx="11"/>
+<text class="s" x="107" y="121" text-anchor="middle">Objects</text>
+<path class="line" d="M62 128V327M62 186H76M62 258H76M62 327H76"/>
+
+<!-- Node A -->
+<rect class="card" x="76" y="154" width="304" height="64" rx="5"/>
+<path class="hs" d="M76 176V159Q76 154 81 154H375Q380 154 380 159V176Z"/>
+<text class="t" x="88" y="170">BaseObject</text>
+<text class="n" x="370" y="170" text-anchor="end">Rounded Tube</text>
+<text class="m b" x="88" y="193">GetNodeData()</text>
+<text class="m" x="88" y="209" opacity=".6">GetDown(), GetCache(), ...</text>
+
+<!-- Node B -->
+<rect class="card" x="76" y="226" width="304" height="64" rx="5"/>
+<path class="hs" d="M76 248V231Q76 226 81 226H375Q380 226 380 231V248Z"/>
+<text class="t" x="88" y="242">BaseObject</text>
+<text class="n" x="370" y="242" text-anchor="end">Rounded Tube.1</text>
+<text class="m b" x="88" y="265">GetNodeData()</text>
+<text class="m" x="88" y="281" opacity=".6">GetDown(), GetCache(), ...</text>
+
+<!-- A plain node without a hook, owning a tag -->
+<rect class="plain" x="76" y="314" width="304" height="26" rx="5"/>
+<text class="t" x="88" y="331">BaseObject</text>
+<text class="n" x="370" y="331" text-anchor="end">Cube, built-in, no Python hook</text>
+<path class="own" d="M91 340V363H106"/>
+<rect class="head" x="106" y="352" width="90" height="22" rx="11"/>
+<text class="s" x="151" y="367" text-anchor="middle">Tags</text>
+<path class="line" d="M116 374V420H124"/>
+
+<!-- Tag node -->
+<rect class="card" x="124" y="388" width="256" height="64" rx="5"/>
+<path class="hs" d="M124 410V393Q124 388 129 388H375Q380 388 380 393V410Z"/>
+<text class="t" x="136" y="404">BaseTag</text>
+<text class="n" x="370" y="404" text-anchor="end">Look At Camera</text>
+<text class="m b" x="136" y="427">GetNodeData()</text>
+<text class="m" x="136" y="443" opacity=".6">GetObject(), ...</text>
+
+<!-- Implementation layer: ObjectData class with one instance per node -->
+<text class="m" x="596" y="116" opacity=".75">RegisterObjectPlugin(g=MyObjectData, ...)</text>
+<rect class="cls" x="584" y="128" width="344" height="174" rx="8"/>
+<text class="t" x="596" y="146">MyObjectData(ObjectData)</text>
+<text class="n" x="916" y="146" text-anchor="end">one class, registered once</text>
+
+<rect class="card" x="596" y="154" width="320" height="64" rx="5"/>
+<path class="hi" d="M596 176V159Q596 154 601 154H911Q916 154 916 159V176Z"/>
+<text class="t" x="608" y="170">MyObjectData</text>
+<text class="n" x="906" y="170" text-anchor="end">instance 1</text>
+<text class="m" x="608" y="193">Init(<tspan class="g">node</tspan>, isCloneInit)</text>
+<text class="m" x="608" y="209">GetVirtualObjects(<tspan class="g">op</tspan>, hh)</text>
+
+<rect class="card" x="596" y="226" width="320" height="64" rx="5"/>
+<path class="hi" d="M596 248V231Q596 226 601 226H911Q916 226 916 231V248Z"/>
+<text class="t" x="608" y="242">MyObjectData</text>
+<text class="n" x="906" y="242" text-anchor="end">instance 2</text>
+<text class="m" x="608" y="265">Init(<tspan class="g">node</tspan>, isCloneInit)</text>
+<text class="m" x="608" y="281">GetVirtualObjects(<tspan class="g">op</tspan>, hh)</text>
+
+<!-- Implementation layer: TagData class -->
+<text class="m" x="596" y="344" opacity=".75">RegisterTagPlugin(g=MyTagData, ...)</text>
+<rect class="cls" x="584" y="356" width="344" height="108" rx="8"/>
+<text class="t" x="596" y="374">MyTagData(TagData)</text>
+<text class="n" x="916" y="374" text-anchor="end">one class, registered once</text>
+
+<rect class="card" x="596" y="388" width="320" height="64" rx="5"/>
+<path class="hi" d="M596 410V393Q596 388 601 388H911Q916 388 916 393V410Z"/>
+<text class="t" x="608" y="404">MyTagData</text>
+<text class="n" x="906" y="404" text-anchor="end">instance 1</text>
+<text class="m" x="608" y="427">Init(<tspan class="g">node</tspan>, isCloneInit)</text>
+<text class="m" x="608" y="443">Execute(<tspan class="g">tag</tspan>, doc, op, bt, ...)</text>
+
+<!-- Links between the layers -->
+<path class="tonode" d="M380 176H594" marker-end="url(#nh-b)"/>
+<text class="s b" x="487" y="170" text-anchor="middle">GetNodeData()</text>
+<path class="tohook" d="M594 198H382" marker-end="url(#nh-g)"/>
+<text class="s g" x="487" y="212" text-anchor="middle">node is passed in</text>
+
+<path class="tonode" d="M380 248H594" marker-end="url(#nh-b)"/>
+<text class="s b" x="487" y="242" text-anchor="middle">GetNodeData()</text>
+<path class="tohook" d="M594 270H382" marker-end="url(#nh-g)"/>
+<text class="s g" x="487" y="284" text-anchor="middle">node is passed in</text>
+
+<path class="tonode" d="M380 410H594" marker-end="url(#nh-b)"/>
+<text class="s b" x="487" y="404" text-anchor="middle">GetNodeData()</text>
+<path class="tohook" d="M594 432H382" marker-end="url(#nh-g)"/>
+<text class="s g" x="487" y="446" text-anchor="middle">node is passed in</text>
+
+<!-- Legend -->
+<path class="tonode" d="M16 499h24" marker-end="url(#nh-b)"/>
+<text class="n" x="48" y="503">Node asks for its implementation</text>
+<path class="tohook" d="M250 499h24" marker-end="url(#nh-g)"/>
+<text class="n" x="282" y="503">Implementation receives its node</text>
+<path class="own" d="M520 499h18"/>
+<text class="n" x="546" y="503">Owns a branch</text>
+<rect class="cls" x="660" y="494" width="16" height="10" rx="3"/>
+<text class="n" x="684" y="503">Hook class</text>
+</svg>

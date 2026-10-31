@@ -1,0 +1,66 @@
+<svg class="ml" xmlns="http://www.w3.org/2000/svg" viewBox="0 36 620 310" role="img" aria-labelledby="ml-title ml-desc" style="width:100%;height:auto;max-width:620px;display:block;margin:0 auto">
+<title id="ml-title">The layout of a c4d.Matrix</title>
+<desc id="ml-desc">A 4 by 4 grid of numbers. The top row holds the constants 1, 0, 0, 0. The first column below it holds the offset off. The remaining 3 by 3 block holds the three basis vectors v1, v2, and v3, one in each column.</desc>
+<style>
+.ml{color:var(--color-text,#4d4d4d);font-family:var(--font-family-sans,'Roboto',Arial,sans-serif);font-size:13px}
+.ml text{fill:currentColor}
+.ml .m{font-family:var(--font-family-mono,Consolas,'Courier New',monospace);font-size:16px}
+.ml .h{font-size:12px;opacity:.7}
+.ml .t{font-weight:500}
+.ml .const{fill:hsl(10 75% 55% / .16);stroke:hsl(10 65% 52%)}
+.ml .off{fill:hsl(140 55% 42% / .16);stroke:hsl(140 50% 38%)}
+.ml .basis{fill:hsl(215 70% 55% / .14);stroke:hsl(215 60% 55%)}
+.ml .bracket{fill:none;stroke:currentColor;stroke-width:2;opacity:.7}
+.ml .c2{fill:hsl(140 50% 38%)}
+.ml .c3{fill:hsl(215 60% 55%)}
+</style>
+
+<!-- Column headers -->
+<text class="h" x="200" y="62" text-anchor="middle">off</text>
+<text class="h" x="300" y="62" text-anchor="middle">v1</text>
+<text class="h" x="400" y="62" text-anchor="middle">v2</text>
+<text class="h" x="500" y="62" text-anchor="middle">v3</text>
+
+<!-- Row labels -->
+<text class="h" x="126" y="125" text-anchor="end">constant</text>
+<text class="h" x="126" y="175" text-anchor="end">X</text>
+<text class="h" x="126" y="225" text-anchor="end">Y</text>
+<text class="h" x="126" y="275" text-anchor="end">Z</text>
+
+<!-- Highlighted parts -->
+<rect class="const" x="152" y="96" width="396" height="48" rx="6"/>
+<rect class="off" x="152" y="148" width="96" height="148" rx="6"/>
+<rect class="basis" x="252" y="148" width="296" height="148" rx="6"/>
+
+<!-- Brackets -->
+<path class="bracket" d="M148 92H138V300H148"/>
+<path class="bracket" d="M552 92H562V300H552"/>
+
+<!-- Constant row -->
+<text class="m" x="200" y="126" text-anchor="middle">1</text>
+<text class="m" x="300" y="126" text-anchor="middle">0</text>
+<text class="m" x="400" y="126" text-anchor="middle">0</text>
+<text class="m" x="500" y="126" text-anchor="middle">0</text>
+
+<!-- Offset and basis -->
+<text class="m c2" x="200" y="176" text-anchor="middle">off.x</text>
+<text class="m c2" x="200" y="226" text-anchor="middle">off.y</text>
+<text class="m c2" x="200" y="276" text-anchor="middle">off.z</text>
+<text class="m c3" x="300" y="176" text-anchor="middle">v1.x</text>
+<text class="m c3" x="300" y="226" text-anchor="middle">v1.y</text>
+<text class="m c3" x="300" y="276" text-anchor="middle">v1.z</text>
+<text class="m c3" x="400" y="176" text-anchor="middle">v2.x</text>
+<text class="m c3" x="400" y="226" text-anchor="middle">v2.y</text>
+<text class="m c3" x="400" y="276" text-anchor="middle">v2.z</text>
+<text class="m c3" x="500" y="176" text-anchor="middle">v3.x</text>
+<text class="m c3" x="500" y="226" text-anchor="middle">v3.y</text>
+<text class="m c3" x="500" y="276" text-anchor="middle">v3.z</text>
+
+<!-- Legend -->
+<rect class="const" x="60" y="318" width="14" height="14" rx="3"/>
+<text x="80" y="330">constant, fixed</text>
+<rect class="off" x="226" y="318" width="14" height="14" rx="3"/>
+<text x="246" y="330">off: the origin</text>
+<rect class="basis" x="384" y="318" width="14" height="14" rx="3"/>
+<text x="404" y="330">v1, v2, v3: the axes</text>
+</svg>

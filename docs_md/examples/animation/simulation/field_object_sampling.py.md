@@ -1,0 +1,73 @@
+<!-- Source: https://developers.maxon.net/docs/py/2027_0_0/examples/animation/simulation/field_object_sampling.py.html -->
+
+Local source: [examples/animation/simulation/field_object_sampling.py](../../../../examples/animation/simulation/field_object_sampling.py)
+
+# field_object_sampling <a id="field-object-sampling"></a>
+
+Samples arbitrary points within a random field.
+
+## field_object_sampling.py <a id="field-object-sampling-py"></a>
+
+```python
+"""Samples arbitrary points within a random field.
+
+Topics:
+    * c4d.modules.mograph.FieldObject
+    * c4d.modules.mograph.FieldInput
+    * c4d.modules.mograph.FieldInfo
+    * c4d.modules.mograph.FieldOutput
+"""
+__author__ = "Maxime Adam"
+__copyright__ = "Copyright (C) 2026 MAXON Computer GmbH"
+__license__ = "Apache-2.0 License"
+__version__ = "R20"
+
+import c4d
+
+def main():
+    # Checks if the selected object is a random field object
+    if op is None:
+        raise ValueError("op is none, please select one object.")
+
+    if not op.IsInstanceOf(c4d.Frandom):
+        raise TypeError("Selected object is not a random field.")
+
+    # Creates a list of 10 points to sample
+    sampleCount = 10
+    positions = []
+    offset = 0.0
+    for i in range(sampleCount):
+        positions.append(c4d.Vector(offset, 0, 0))
+        offset += 10.0
+
+    # Creates FieldInput
+    input = c4d.modules.mograph.FieldInput(positions, sampleCount)
+    if input is None:
+        raise MemoryError("Failed to create a FieldInput.")
+
+    # Creates FieldInfo
+    flags = c4d.FIELDSAMPLE_FLAG_VALUE
+    thread = c4d.threading.GeGetCurrentThread()
+    currentThreadIndex = 0
+    threadCount = 1
+    info = c4d.modules.mograph.FieldInfo.Create(flags, thread, doc, currentThreadIndex, threadCount, input)
+    if info is None:
+        raise MemoryError("Failed to create a FieldInfo.")
+
+    # Creates FieldOutput
+    output = c4d.modules.mograph.FieldOutput()
+    if output is None:
+        raise MemoryError("Failed to create a FieldOutput.")
+    output.Resize(sampleCount, c4d.FIELDSAMPLE_FLAG_VALUE)
+
+    # Samples the data
+    op.InitSampling(info)
+    op.Sample(input, output.GetBlock(), info, c4d.FIELDOBJECTSAMPLE_FLAG_DISABLEDIRECTIONFALLOFF)
+    op.FreeSampling(info)
+
+    # Prints the values for the sampled points
+    print(output)
+
+if __name__ == '__main__':
+    main()
+```

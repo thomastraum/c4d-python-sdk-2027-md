@@ -1,0 +1,139 @@
+<!-- Source: https://developers.maxon.net/docs/py/2027_0_0/examples/plugins/py_sha_fresnel/py_sha_fresnel.pyp.html -->
+
+Local source: [examples/plugins/py_sha_fresnel/py_sha_fresnel.pyp](../../../../examples/plugins/py_sha_fresnel/py_sha_fresnel.pyp)
+
+# py_sha_fresnel <a id="py-sha-fresnel"></a>
+
+Demonstrates how to implement a shader that computes a fresnel effect.
+
+## DETAILS
+
+The shader evaluates the Fresnel response and shows how a ShaderData plugin reports its output and exception color.
+
+To run this example, place the file in the Cinema 4D plugins folder and restart Cinema 4D.
+
+Topics:
+
+- Computing a Fresnel shader response
+- Returning shader output and exception colors
+
+## Files <a id="files"></a>
+
+### `py_sha_fresnel.pyp` <a id="py-sha-fresnel-pyp"></a>
+
+```python
+"""Demonstrates how to implement a shader that computes a fresnel effect.
+
+The shader evaluates the Fresnel response and shows how a ShaderData plugin reports its output and exception color.
+
+To run this example, place the file in the Cinema 4D plugins folder and restart Cinema 4D.
+
+Topics:
+    - Computing a Fresnel shader response
+    - Returning shader output and exception colors
+"""
+__copyright__ = "Copyright 2026, MAXON Computer"
+__author__ = "Maxime Adam"
+__date__ = "25/08/2026"
+__license__ = "Apache-2.0 license"
+__version__ = "13.0.0"
+
+import math
+import c4d
+
+# Be sure to use a unique ID obtained from developers.maxon.net
+PLUGIN_ID = 1027089
+
+class PyFresnel(c4d.plugins.ShaderData):
+
+    def __init__(self):
+        # If a Python exception occurs during the calculation of a pixel colorize
+        # this one in red for debugging purposes
+        self.SetExceptionColor(c4d.Vector(1, 0, 0))
+
+    def FaceForward(self, N, I):
+        return abs((-I) * N) * N
+
+    def Fresnel(self, I, N, etasqrt):
+        cos_theta = I * N
+
+        fuvA = etasqrt - (1.0 - (cos_theta * cos_theta))
+        fuvB = abs(fuvA)
+        fu2 = (fuvA + fuvB) / 2.0
+        fv2 = (-fuvA + fuvB) / 2.0
+        fv2sqrt = 0.0 if fv2 == 0.0 else math.sqrt(abs(fv2))
+        fu2sqrt = 0.0 if fu2 == 0.0 else math.sqrt(abs(fu2))
+
+        fperp_temp = ((cos_theta + fu2sqrt) * (cos_theta + fu2sqrt)) + fv2
+        if fperp_temp == 0.0:
+            return 1.0
+
+        fperp2 = (((cos_theta - fu2sqrt) * (cos_theta - fu2sqrt)) + fv2) / fperp_temp
+
+        fpara_temp = ((etasqrt * cos_theta + fu2sqrt) *
+                      (etasqrt * cos_theta + fu2sqrt)) + fv2sqrt * fv2sqrt
+        if fpara_temp == 0.0:
+            return 1.0
+
+        fpara2 = (((etasqrt * cos_theta - fu2sqrt) * (etasqrt * cos_theta - fu2sqrt)) + -
+                  fv2sqrt * -fv2sqrt) / fpara_temp
+
+        return 0.5 * (fperp2 + fpara2)
+
+    def Output(self, sh, cd):
+        """Called by Cinema 4D for each point of the visible surface of a shaded object to return the color.
+
+        Important: No OS calls are allowed during this function. Doing so could cause a crash, since it can be called in a multi-processor context.
+
+        Args:
+            sh (c4d.BaseShader): The shader node connected with this instance.
+            cd (c4d.modules.render.ChannelData): Channel data to use and/or modify.
+
+        Returns:
+            c4d.Vector: The color of the shaded from 0 = black to 1 = white
+        """
+        # If shader is computed in 3d space
+        if cd.vd:
+            # default IOR value
+            ior = 1.6
+            n = self.FaceForward(~cd.vd.bumpn, ~cd.vd.ray.v)
+            fresnel = self.Fresnel(-(~cd.vd.ray.v), ~n, ior * ior)
+
+            return c4d.Vector(fresnel)
+
+        # If shader is computed in 2d space, return black
+        else:
+            return c4d.Vector(0.0)
+
+if __name__ == '__main__':
+    # String resource, see c4d_symbols.h, have to be redefined in python
+    IDS_PY_FRESNEL = 10000
+    c4d.plugins.RegisterShaderPlugin(
+        PLUGIN_ID, c4d.plugins.GeLoadString(IDS_PY_FRESNEL), 0, PyFresnel, "", 0)
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_sha_fresnel/py_sha_fresnel.pyp)
+
+### `res/c4d_symbols.h` <a id="res-c4d-symbols-h"></a>
+
+```cpp
+enum
+{
+	// End of symbol definition
+	IDS_PY_FRESNEL=10000,
+  _DUMMY_ELEMENT_
+};
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_sha_fresnel/res/c4d_symbols.h)
+
+### `res/strings_us/c4d_strings.str` <a id="res-strings-us-c4d-strings-str"></a>
+
+```c4dstr
+STRINGTABLE
+{
+    IDS_PY_FRESNEL  "Py SDK - Fresnel";
+}
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_sha_fresnel/res/strings_us/c4d_strings.str)

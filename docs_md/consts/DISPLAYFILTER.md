@@ -1,0 +1,40 @@
+<!-- Source: https://developers.maxon.net/docs/py/2027_0_0/consts/DISPLAYFILTER.html -->
+
+# DISPLAYFILTER <a id="displayfilter"></a>
+
+| DISPLAYFILTER_NONE | None. |
+|---|---|
+| DISPLAYFILTER_NULLOBJECT | Null. |
+| DISPLAYFILTER_POLYGON | Polygon. |
+| DISPLAYFILTER_SPLINE | Spline. |
+| DISPLAYFILTER_GENERATOR | Generator. |
+| DISPLAYFILTER_HYPERNURBS | Subdivision Surface. |
+| DISPLAYFILTER_UNUSED1 | Unused. |
+| DISPLAYFILTER_DEFORMER | Deformer. |
+| DISPLAYFILTER_CAMERA | Camera. |
+| DISPLAYFILTER_LIGHT | Light. |
+| DISPLAYFILTER_SCENE | Scene. |
+| DISPLAYFILTER_PARTICLE | Particle. |
+| DISPLAYFILTER_OTHER | Other. |
+| DISPLAYFILTER_UNUSED2 | *New in version S22:* Unused. |
+| DISPLAYFILTER_GRID | Grid. |
+| DISPLAYFILTER_HORIZON | Horizon. |
+| DISPLAYFILTER_WORLDAXIS | World axis. |
+| DISPLAYFILTER_BOUNDS | Bounding-box. |
+| DISPLAYFILTER_HUD | HUD. |
+| DISPLAYFILTER_SDS | HN mesh. |
+| DISPLAYFILTER_HIGHLIGHTING | Highlighting. |
+| DISPLAYFILTER_MULTIAXIS | Multi-select axis. |
+| DISPLAYFILTER_OBJECTHANDLES | Highlight handles. |
+| DISPLAYFILTER_HANDLEBANDS | Axis bands. |
+| DISPLAYFILTER_SDSCAGE | HN cage. |
+| DISPLAYFILTER_NGONLINES | N-gon lines. |
+| DISPLAYFILTER_JOINT | Joint objects. |
+| DISPLAYFILTER_OBJECTHIGHLIGHTING | Private. |
+| DISPLAYFILTER_GUIDELINES | Axis Guidelines. |
+| DISPLAYFILTER_POI | Navigation cross. |
+| DISPLAYFILTER_GRADIENT | Gradient. |
+| DISPLAYFILTER_BASEGRID | Base grid. |
+| DISPLAYFILTER_HANDLES | Handles. |
+| DISPLAYFILTER_HAIR | *New in version S22:* Hair. |
+| DISPLAYFILTER_FIELD | *New in version S22:* Field. |

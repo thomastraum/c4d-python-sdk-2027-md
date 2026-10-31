@@ -1,0 +1,81 @@
+<svg class="pl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 310" role="img" aria-labelledby="pl-title pl-desc" style="width:100%;height:auto;max-width:960px;display:block;margin:0 auto">
+<title id="pl-title">Execution stages of a scene update</title>
+<desc id="pl-desc">Elements are executed in ascending priority order: Initial, Animation, Expression, Dynamics, Generators where caches are rebuilt, and Scene Nodes.</desc>
+<style>
+.pl{color:var(--color-text,#4d4d4d);font-family:var(--font-family-sans,'Roboto',Arial,sans-serif);font-size:12px}
+.pl text{fill:currentColor}
+.pl .t{font-weight:500;font-size:13px}
+.pl .s{font-size:11px;opacity:.8}
+.pl .n{font-size:11px;opacity:.7}
+.pl .line{fill:none;stroke:currentColor;stroke-opacity:.5;stroke-width:1.5}
+.pl .div{stroke:currentColor;stroke-opacity:.25}
+.pl .c0{fill:hsl(215 70% 55% / .16);stroke:hsl(215 60% 55%)}
+.pl .c1{fill:hsl(150 60% 45% / .16);stroke:hsl(150 50% 45%)}
+.pl .c2{fill:hsl(35 85% 55% / .18);stroke:hsl(35 80% 50%)}
+.pl .c3{fill:hsl(285 55% 60% / .16);stroke:hsl(285 45% 60%)}
+.pl .c4{fill:hsl(190 70% 45% / .18);stroke:hsl(190 65% 42%)}
+.pl .c5{fill:hsl(0 0% 55% / .16);stroke:hsl(0 0% 55%)}
+</style>
+<defs>
+<marker id="pl-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".6"/></marker>
+</defs>
+
+<text class="t" x="20" y="20">Execution stages, from the lowest to the highest priority value</text>
+
+<rect class="c0" x="20" y="36" width="140" height="170" rx="6"/>
+<text class="t" x="90" y="58" text-anchor="middle">Initial</text>
+<text class="n" x="90" y="75" text-anchor="middle">1000</text>
+<line class="div" x1="30" y1="86" x2="150" y2="86"/>
+<text class="s" x="90" y="108" text-anchor="middle">Elements that must</text>
+<text class="s" x="90" y="124" text-anchor="middle">run before any</text>
+<text class="s" x="90" y="140" text-anchor="middle">animation</text>
+
+<rect class="c1" x="172" y="36" width="140" height="170" rx="6"/>
+<text class="t" x="242" y="58" text-anchor="middle">Animation</text>
+<text class="n" x="242" y="75" text-anchor="middle">2000 (NLA 2010)</text>
+<line class="div" x1="182" y1="86" x2="302" y2="86"/>
+<text class="s" x="242" y="108" text-anchor="middle">Tracks and keyframes</text>
+<text class="s" x="242" y="124" text-anchor="middle">are interpolated and</text>
+<text class="s" x="242" y="140" text-anchor="middle">written into the</text>
+<text class="s" x="242" y="156" text-anchor="middle">parameters</text>
+
+<rect class="c2" x="324" y="36" width="140" height="170" rx="6"/>
+<text class="t" x="394" y="58" text-anchor="middle">Expression</text>
+<text class="n" x="394" y="75" text-anchor="middle">3000</text>
+<line class="div" x1="334" y1="86" x2="454" y2="86"/>
+<text class="s" x="394" y="108" text-anchor="middle">Default stage of tags,</text>
+<text class="s" x="394" y="124" text-anchor="middle">such as Python and</text>
+<text class="s" x="394" y="140" text-anchor="middle">XPresso tags</text>
+
+<rect class="c3" x="476" y="36" width="140" height="170" rx="6"/>
+<text class="t" x="546" y="58" text-anchor="middle">Dynamics</text>
+<text class="n" x="546" y="75" text-anchor="middle">4000</text>
+<line class="div" x1="486" y1="86" x2="606" y2="86"/>
+<text class="s" x="546" y="108" text-anchor="middle">Simulations</text>
+
+<rect class="c4" x="628" y="36" width="140" height="170" rx="6"/>
+<text class="t" x="698" y="58" text-anchor="middle">Generators</text>
+<text class="n" x="698" y="75" text-anchor="middle">5000</text>
+<line class="div" x1="638" y1="86" x2="758" y2="86"/>
+<text class="s" x="698" y="108" text-anchor="middle">Caches are rebuilt:</text>
+<text class="s" x="698" y="124" text-anchor="middle">generators, deformers,</text>
+<text class="s" x="698" y="140" text-anchor="middle">effectors and fields</text>
+
+<rect class="c5" x="780" y="36" width="160" height="170" rx="6"/>
+<text class="t" x="860" y="58" text-anchor="middle">Scene Nodes</text>
+<text class="n" x="860" y="75" text-anchor="middle">10000</text>
+<line class="div" x1="790" y1="86" x2="930" y2="86"/>
+<text class="s" x="860" y="108" text-anchor="middle">Scene Nodes, which</text>
+<text class="s" x="860" y="124" text-anchor="middle">run after all the</text>
+<text class="s" x="860" y="140" text-anchor="middle">other stages</text>
+
+<path class="line" d="M20 236H940" marker-end="url(#pl-arrow)"/>
+<text class="n" x="20" y="224">Executed first</text>
+<text class="n" x="940" y="224" text-anchor="end">Executed last</text>
+
+<path class="line" d="M20 252v6H616v-6"/>
+<text class="s" x="318" y="276" text-anchor="middle">Caches still hold the result of the previous update</text>
+<path class="line" d="M628 252v6H940v-6"/>
+<text class="s" x="784" y="276" text-anchor="middle">Caches are rebuilt in this stage;</text>
+<text class="s" x="784" y="292" text-anchor="middle">later stages see the new result</text>
+</svg>

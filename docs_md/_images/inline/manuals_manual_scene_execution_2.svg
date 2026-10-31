@@ -1,0 +1,84 @@
+<svg class="pc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 462" role="img" aria-labelledby="pc-title pc-desc" style="width:100%;height:auto;max-width:960px;display:block;margin:0 auto">
+<title id="pc-title">Where code runs in the update cycle</title>
+<desc id="pc-desc">Scripts, commands, dialogs and Message methods run on the main thread between updates. AddToExecution runs in the pre-pass. Tags run in the Expression stage by default, generators, deformers, effectors and fields run in the Generators stage, and Draw methods run while drawing. All of these callbacks are executed on the thread that runs the update, or the main thread during playback. Shaders and Sketch and Toon run on render threads.</desc>
+<style>
+.pc{color:var(--color-text,#4d4d4d);font-family:var(--font-family-sans,'Roboto',Arial,sans-serif);font-size:12px}
+.pc text{fill:currentColor}
+.pc .t{font-weight:500;font-size:13px}
+.pc .s{font-size:11px;opacity:.9}
+.pc .n{font-size:11px;opacity:.7}
+.pc .col{fill:currentColor;fill-opacity:.04;stroke:currentColor;stroke-opacity:.2}
+.pc .head{fill:currentColor;fill-opacity:.08;stroke:currentColor;stroke-opacity:.35}
+.pc .main{fill:hsl(150 60% 45% / .18);stroke:hsl(150 50% 45%)}
+.pc .thr{fill:hsl(35 85% 55% / .2);stroke:hsl(35 80% 50%)}
+.pc .rnd{fill:hsl(0 70% 55% / .16);stroke:hsl(0 60% 55%)}
+.pc .range{fill:none;stroke:hsl(35 80% 50%);stroke-dasharray:5 4}
+</style>
+
+<!-- Stage columns -->
+<rect class="col" x="20" y="16" width="176" height="356" rx="6"/>
+<rect class="col" x="206" y="16" width="176" height="356" rx="6"/>
+<rect class="col" x="392" y="16" width="176" height="356" rx="6"/>
+<rect class="col" x="578" y="16" width="176" height="356" rx="6"/>
+<rect class="col" x="764" y="16" width="176" height="356" rx="6"/>
+
+<rect class="head" x="20" y="16" width="176" height="44" rx="6"/>
+<text class="t" x="108" y="35" text-anchor="middle">Pre-pass</text>
+<text class="n" x="108" y="51" text-anchor="middle">before the execution</text>
+<rect class="head" x="206" y="16" width="176" height="44" rx="6"/>
+<text class="t" x="294" y="35" text-anchor="middle">Animation</text>
+<text class="n" x="294" y="51" text-anchor="middle">2000</text>
+<rect class="head" x="392" y="16" width="176" height="44" rx="6"/>
+<text class="t" x="480" y="35" text-anchor="middle">Expression</text>
+<text class="n" x="480" y="51" text-anchor="middle">3000</text>
+<rect class="head" x="578" y="16" width="176" height="44" rx="6"/>
+<text class="t" x="666" y="35" text-anchor="middle">Generators</text>
+<text class="n" x="666" y="51" text-anchor="middle">5000</text>
+<rect class="head" x="764" y="16" width="176" height="44" rx="6"/>
+<text class="t" x="852" y="35" text-anchor="middle">Draw</text>
+<text class="n" x="852" y="51" text-anchor="middle">after the execution</text>
+
+<!-- Main thread, between updates -->
+<rect class="main" x="20" y="76" width="920" height="48" rx="6"/>
+<text class="t" x="480" y="96" text-anchor="middle">Main thread, between updates</text>
+<text class="s" x="480" y="112" text-anchor="middle">Script Manager scripts, CommandData, GeDialog, MessageData, and Message() / message() of nodes and scripting elements</text>
+
+<!-- Pre-pass and draw -->
+<rect class="main" x="30" y="144" width="156" height="48" rx="6"/>
+<text class="s" x="108" y="164" text-anchor="middle">AddToExecution()</text>
+<text class="n" x="108" y="180" text-anchor="middle">declares execution points</text>
+
+<rect class="thr" x="774" y="144" width="156" height="48" rx="6"/>
+<text class="s" x="852" y="164" text-anchor="middle">Draw(), draw()</text>
+<text class="n" x="852" y="180" text-anchor="middle">tags, objects, tools</text>
+
+<!-- Tags: default stage, adjustable range -->
+<rect class="range" x="216" y="208" width="528" height="48" rx="6"/>
+<rect class="thr" x="402" y="208" width="156" height="48" rx="6"/>
+<text class="s" x="480" y="228" text-anchor="middle">Python Programming Tag,</text>
+<text class="s" x="480" y="244" text-anchor="middle">XPresso Node, Execute()</text>
+
+<!-- Generators stage -->
+<rect class="thr" x="588" y="272" width="156" height="40" rx="6"/>
+<text class="s" x="666" y="290" text-anchor="middle">Python Generator main(),</text>
+<text class="s" x="666" y="304" text-anchor="middle">GetVirtualObjects()</text>
+
+<rect class="thr" x="588" y="320" width="156" height="40" rx="6"/>
+<text class="s" x="666" y="338" text-anchor="middle">ModifyObject(), Python</text>
+<text class="s" x="666" y="352" text-anchor="middle">Effector, Python Field</text>
+
+<!-- Render threads -->
+<rect class="rnd" x="20" y="388" width="920" height="40" rx="6"/>
+<text class="t" x="480" y="406" text-anchor="middle">Render threads, during rendering</text>
+<text class="s" x="480" y="421" text-anchor="middle">Shader Output(), Sketch and Toon callbacks, several at once</text>
+
+<!-- Legend -->
+<rect class="main" x="20" y="442" width="12" height="10" rx="2"/>
+<text class="n" x="38" y="451">Main thread</text>
+<rect class="thr" x="130" y="442" width="12" height="10" rx="2"/>
+<text class="n" x="148" y="451">Threaded: the thread executing the update</text>
+<rect class="rnd" x="462" y="442" width="12" height="10" rx="2"/>
+<text class="n" x="480" y="451">Render threads</text>
+<path d="M580 447h22" stroke="hsl(35 80% 50%)" stroke-dasharray="5 4" fill="none"/>
+<text class="n" x="608" y="451">Other stages, set with the Priority parameter</text>
+</svg>

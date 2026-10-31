@@ -1,0 +1,250 @@
+# Cinema API Reference
+
+> Modules, classes, and functions of `c4d` and `mxutils`.
+
+- [c4d](../modules/c4d/index.md): An overview of not all but important types in the c4d module.
+- [c4d.bitmaps](../modules/c4d.bitmaps/index.md)
+  - [c4d.bitmaps.BaseBitmap](../modules/c4d.bitmaps/BaseBitmap/index.md)
+    - [c4d.bitmaps.MultipassBitmap](../modules/c4d.bitmaps/BaseBitmap/MultipassBitmap/index.md)
+  - [c4d.bitmaps.ColorProfile](../modules/c4d.bitmaps/ColorProfile/index.md): Represents a Color Profile.
+  - [c4d.bitmaps.ColorProfileConvert](../modules/c4d.bitmaps/ColorProfileConvert/index.md)
+  - [c4d.bitmaps.GeClipMap](../modules/c4d.bitmaps/GeClipMap/index.md)
+  - [c4d.bitmaps.MovieLoader](../modules/c4d.bitmaps/MovieLoader/index.md): The movie loader class is used for reading movie streams.
+  - [c4d.bitmaps.MovieSaver](../modules/c4d.bitmaps/MovieSaver/index.md): The movie saver class is used for reading and writing movie streams.
+- [c4d.documents](../modules/c4d.documents/index.md)
+  - [c4d.documents.BaseDocument](../modules/c4d.documents/BaseDocument/index.md): This object contains the complete description of a scene.
+  - [c4d.documents.BaseVideoPost](../modules/c4d.documents/BaseVideoPost/index.md)
+  - [c4d.documents.BatchRender](../modules/c4d.documents/BatchRender/index.md)
+  - [c4d.documents.LayerObject](../modules/c4d.documents/LayerObject/index.md)
+  - [c4d.documents.RenderData](../modules/c4d.documents/RenderData/index.md)
+- [c4d.gui](../modules/c4d.gui/index.md)
+  - [c4d.gui.BaseCustomGui](../modules/c4d.gui/BaseCustomGui/index.md): The base class for custom GUI libraries.
+    - [c4d.gui.BitmapButtonCustomGui](../modules/c4d.gui/BaseCustomGui/BitmapButtonCustomGui/index.md)
+    - [c4d.gui.DateTimeControl](../modules/c4d.gui/BaseCustomGui/DateTimeControlData/index.md)
+    - [c4d.gui.DescriptionCustomGui](../modules/c4d.gui/BaseCustomGui/DescriptionCustomGui/index.md)
+    - [c4d.gui.FontChooserCustomGui](../modules/c4d.gui/BaseCustomGui/FontChooserCustomGui/index.md)
+    - [c4d.gui.GradientCustomGui](../modules/c4d.gui/BaseCustomGui/GradientCustomGui/index.md)
+    - [c4d.gui.HtmlViewerCustomGui](../modules/c4d.gui/BaseCustomGui/HtmlViewerCustomGui/index.md)
+    - [c4d.gui.HyperLinkCustomGui](../modules/c4d.gui/BaseCustomGui/HyperLinkCustomGui/index.md)
+    - [c4d.gui.InExcludeCustomGui](../modules/c4d.gui/BaseCustomGui/InExcludeCustomGui/index.md)
+    - [c4d.gui.LinkBoxGui](../modules/c4d.gui/BaseCustomGui/LinkBoxGui/index.md)
+    - [c4d.gui.QuickTabCustomGui](../modules/c4d.gui/BaseCustomGui/QuickTabCustomGui/index.md): The picture shows two elements, the top one with QUICKTAB_BAR set to True.
+    - [c4d.gui.RangeCustomGui](../modules/c4d.gui/BaseCustomGui/RangeCustomGui/index.md)
+    - [c4d.gui.SoundEffectorCustomGui](../modules/c4d.gui/BaseCustomGui/SoundEffectorCustomGui/index.md): Custom GUI for c4d.SoundEffectorData (CUSTOMGUI_SOUNDEFFECTOR).
+    - [c4d.gui.SplineCustomGui](../modules/c4d.gui/BaseCustomGui/SplineCustomGui/index.md)
+    - [c4d.gui.TreeViewCustomGui](../modules/c4d.gui/BaseCustomGui/TreeViewCustomGui/index.md): The tree view GUI (CUSTOMGUI_TREEVIEW) is a very versatile list view interface.
+  - [c4d.gui.C4DGadget](../modules/c4d.gui/C4DGadget/index.md)
+  - [c4d.gui.EditorWindow](../modules/c4d.gui/EditorWindow/index.md)
+  - [c4d.gui.GeDialog](../modules/c4d.gui/GeDialog/index.md)
+    - [c4d.gui.SubDialog](../modules/c4d.gui/GeDialog/SubDialog/index.md): The class to create custom sub-dialogs.
+  - [c4d.gui.GeUserArea](../modules/c4d.gui/GeUserArea/index.md): This class helps you to create custom gadgets for dialogs in Cinema 4D.
+  - [c4d.gui.TreeViewFunctions](../modules/c4d.gui/TreeViewFunctions/index.md): TreeViewFloatSliderInfo Dict
+- [c4d.modules](../modules/c4d.modules/index.md)
+  - [c4d.modules.bodypaint](../modules/c4d.modules/bodypaint/index.md)
+    - [c4d.modules.bodypaint.PaintBitmap](../modules/c4d.modules/bodypaint/PaintBitmap/index.md)
+      - [c4d.modules.bodypaint.PaintLayer](../modules/c4d.modules/bodypaint/PaintBitmap/PaintLayer/index.md)
+        - [c4d.modules.bodypaint.PaintLayerBmp](../modules/c4d.modules/bodypaint/PaintBitmap/PaintLayer/PaintLayerBmp/index.md)
+        - [c4d.modules.bodypaint.PaintLayerFolder](../modules/c4d.modules/bodypaint/PaintBitmap/PaintLayer/PaintLayerFolder/index.md): A class for paint layer folders.
+        - [c4d.modules.bodypaint.PaintLayerMask](../modules/c4d.modules/bodypaint/PaintBitmap/PaintLayer/PaintLayerMask/index.md): A class for paint layer folders.
+      - [c4d.modules.bodypaint.PaintMaterial](../modules/c4d.modules/bodypaint/PaintBitmap/PaintMaterial/index.md)
+      - [c4d.modules.bodypaint.PaintTexture](../modules/c4d.modules/bodypaint/PaintBitmap/PaintTexture/index.md): A class for paint textures, can contain layers and may represent channel of a material.
+    - [c4d.modules.bodypaint.TempUVHandle](../modules/c4d.modules/bodypaint/TempUVHandle/index.md)
+  - [c4d.modules.character](../modules/c4d.modules/character/index.md)
+    - [c4d.modules.character.CAJointObject](../modules/c4d.modules/character/CAJointObject/index.md): The base class of objects.
+    - [c4d.modules.character.CAMorph](../modules/c4d.modules/character/CAMorph/index.md)
+    - [c4d.modules.character.CAMorphNode](../modules/c4d.modules/character/CAMorphNode/index.md)
+    - [c4d.modules.character.CAPoseMorphTag](../modules/c4d.modules/character/CAPoseMorphTag/index.md)
+    - [c4d.modules.character.CAReferencePSD](../modules/c4d.modules/character/CAReferencePSD/index.md)
+    - [c4d.modules.character.CAWeightMgr](../modules/c4d.modules/character/CAWeightMgr/index.md): Represents the Weight Manager.
+    - [c4d.modules.character.CAWeightTag](../modules/c4d.modules/character/CAWeightTag/index.md)
+    - [c4d.modules.character.MTBodyPartParameters](../modules/c4d.modules/character/MTBodyPartParameters/index.md): Represents the settings from a body part of a Character Definition.
+    - [c4d.modules.character.MTCharacterBodyPart](../modules/c4d.modules/character/MTCharacterBodyPart/index.md): Represents a body part from a Character Definition.
+    - [c4d.modules.character.MTCharacterDefinitionTag](../modules/c4d.modules/character/MTCharacterDefinitionTag/index.md): Represents the Character Definition tag.
+    - [c4d.modules.character.MTCharacterMotionTransferTag](../modules/c4d.modules/character/MTCharacterMotionTransferTag/index.md): Represents the Motion Transfer tag.
+    - [c4d.modules.character.builder](../modules/c4d.modules/character/builder/index.md)
+      - [c4d.modules.character.builder.CharacterObject](../modules/c4d.modules/character/builder/CharacterObject/index.md)
+      - [c4d.modules.character.builder.Component](../modules/c4d.modules/character/builder/Component/index.md)
+      - [c4d.modules.character.builder.ComponentObject](../modules/c4d.modules/character/builder/ComponentObject/index.md)
+      - [c4d.modules.character.builder.Template](../modules/c4d.modules/character/builder/Template/index.md)
+  - [c4d.modules.colorchooser](../modules/c4d.modules/colorchooser/index.md)
+    - [c4d.modules.colorchooser.ColorSwatchData](../modules/c4d.modules/colorchooser/ColorSwatchData/index.md)
+    - [c4d.modules.colorchooser.ColorSwatchGroup](../modules/c4d.modules/colorchooser/ColorSwatchGroup/index.md)
+  - [c4d.modules.graphview](../modules/c4d.modules/graphview/index.md)
+    - [c4d.modules.graphview.GvNode](../modules/c4d.modules/graphview/GvNode/index.md)
+    - [c4d.modules.graphview.GvNodeMaster](../modules/c4d.modules/graphview/GvNodeMaster/index.md): A GvNodeMaster stores a collection of GvNode.
+    - [c4d.modules.graphview.GvPort](../modules/c4d.modules/graphview/GvPort/index.md): A GvPort is a port of a GvNode-object.
+    - [c4d.modules.graphview.XPressoTag](../modules/c4d.modules/graphview/XPressoTag/index.md): The class for XPresso tags.
+  - [c4d.modules.hair](../modules/c4d.modules/hair/index.md)
+    - [c4d.modules.hair.HairGuides](../modules/c4d.modules/hair/HairGuides/index.md): Helper class for guides/hair.
+    - [c4d.modules.hair.HairLibrary](../modules/c4d.modules/hair/HairLibrary/index.md)
+    - [c4d.modules.hair.HairObject](../modules/c4d.modules/hair/HairObject/index.md)
+    - [c4d.modules.hair.HairSelectionTag](../modules/c4d.modules/hair/HairSelectionTag/index.md)
+    - [c4d.modules.hair.HairTangentTag](../modules/c4d.modules/hair/HairTangentTag/index.md)
+    - [c4d.modules.hair.HairVertexMapTag](../modules/c4d.modules/hair/HairVertexMapTag/index.md)
+  - [c4d.modules.mograph](../modules/c4d.modules/mograph/index.md)
+    - [c4d.modules.mograph.FieldCallerStack](../modules/c4d.modules/mograph/FieldCallerStack/index.md)
+    - [c4d.modules.mograph.FieldInfo](../modules/c4d.modules/mograph/FieldInfo/index.md)
+    - [c4d.modules.mograph.FieldInput](../modules/c4d.modules/mograph/FieldInput/index.md)
+    - [c4d.modules.mograph.FieldLayer](../modules/c4d.modules/mograph/FieldLayer/index.md)
+    - [c4d.modules.mograph.FieldObject](../modules/c4d.modules/mograph/FieldObject/index.md)
+    - [c4d.modules.mograph.FieldOutput](../modules/c4d.modules/mograph/FieldOutput/index.md)
+    - [c4d.modules.mograph.FieldOutputBlock](../modules/c4d.modules/mograph/FieldOutputBlock/index.md)
+    - [c4d.modules.mograph.MoData](../modules/c4d.modules/mograph/MoData/index.md): Represents a bundle of MoGraph particle data.
+  - [c4d.modules.motiontracker](../modules/c4d.modules/motiontracker/index.md)
+    - [c4d.modules.motiontracker.MotionTrackerObject](../modules/c4d.modules/motiontracker/MotionTrackerObject/index.md): The base class of objects.
+    - [c4d.modules.motiontracker.Mt2dTrack](../modules/c4d.modules/motiontracker/Mt2dTrack/index.md)
+    - [c4d.modules.motiontracker.Mt2dTrackData](../modules/c4d.modules/motiontracker/Mt2dTrackData/index.md)
+    - [c4d.modules.motiontracker.MtData](../modules/c4d.modules/motiontracker/MtData/index.md)
+    - [c4d.modules.motiontracker.MtFootageData](../modules/c4d.modules/motiontracker/MtFootageData/index.md)
+    - [c4d.modules.motiontracker.MtTrkGid](../modules/c4d.modules/motiontracker/MtTrkGid/index.md)
+  - [c4d.modules.net](../modules/c4d.modules/net/index.md)
+    - [c4d.modules.net.NetRenderService](../modules/c4d.modules/net/NetRenderService/index.md)
+    - [c4d.modules.net.RenderJob](../modules/c4d.modules/net/RenderJob/index.md)
+    - [c4d.modules.net.Repository](../modules/c4d.modules/net/Repository/index.md)
+    - [c4d.modules.net.UserPool](../modules/c4d.modules/net/UserPool/index.md)
+  - [c4d.modules.particles](../modules/c4d.modules/particles/index.md)
+    - [c4d.modules.particles.BaseParticle](../modules/c4d.modules/particles/BaseParticle/index.md): Used to change the particle path by the particle modifiers.
+    - [c4d.modules.particles.Particle](../modules/c4d.modules/particles/Particle/index.md): The information for each particle detailing its located, movement and life.
+  - [c4d.modules.render](../modules/c4d.modules/render/index.md)
+    - [c4d.modules.render.BaseVolumeData](../modules/c4d.modules/render/BaseVolumeData/index.md)
+    - [c4d.modules.render.ChannelData](../modules/c4d.modules/render/ChannelData/index.md)
+    - [c4d.modules.render.InitRenderStruct](../modules/c4d.modules/render/InitRenderStruct/index.md)
+    - [c4d.modules.render.OcioConverter](../modules/c4d.modules/render/OcioConverter/index.md): Transforms colors from one OCIO color space to another.
+    - [c4d.modules.render.Ray](../modules/c4d.modules/render/Ray/index.md)
+    - [c4d.modules.render.SceneColorConverter](../modules/c4d.modules/render/SceneColorConverter/index.md): Translates colors stored in scenes and scene elements to new color spaces, preserving the visual identity of the stored colors.
+    - [c4d.modules.render.VolumeData](../modules/c4d.modules/render/VolumeData/index.md)
+  - [c4d.modules.sculpting](../modules/c4d.modules/sculpting/index.md)
+    - [c4d.modules.sculpting.BrushDabData](../modules/c4d.modules/sculpting/BrushDabData/index.md): The brush data for an individual dab.
+    - [c4d.modules.sculpting.SculptBrushParams](../modules/c4d.modules/sculpting/SculptBrushParams/index.md): The parameters to pass in when registering a Sculpting Brush.
+    - [c4d.modules.sculpting.SculptFolder](../modules/c4d.modules/sculpting/SculptFolder/index.md): A SculptFolder can contain many SculptLayer objects or other SculptFolder objects as children.
+    - [c4d.modules.sculpting.SculptLayer](../modules/c4d.modules/sculpting/SculptLayer/index.md): A SculptLayer can contain one or more SculptLayerData children.
+    - [c4d.modules.sculpting.SculptLayerBase](../modules/c4d.modules/sculpting/SculptLayerBase/index.md)
+    - [c4d.modules.sculpting.SculptLayerData](../modules/c4d.modules/sculpting/SculptLayerData/index.md): A SculptLayerData node contains all the offset data and mask data for that layer at its subdivision level.
+    - [c4d.modules.sculpting.SculptModifierInterface](../modules/c4d.modules/sculpting/SculptModifierInterface/index.md): This interface lets apply the affects of a sculpting modifier to any Polygon Object.
+    - [c4d.modules.sculpting.SculptObject](../modules/c4d.modules/sculpting/SculptObject/index.md)
+    - [c4d.modules.sculpting.SculptTag](../modules/c4d.modules/sculpting/SculptTag/index.md)
+  - [c4d.modules.snap](../modules/c4d.modules/snap/index.md): This is the snap module to access the snap settings, quantizing options, workplane etc.
+  - [c4d.modules.substance](../modules/c4d.modules/substance/index.md)
+  - [c4d.modules.takesystem](../modules/c4d.modules/takesystem/index.md)
+    - [c4d.modules.takesystem.BaseOverride](../modules/c4d.modules/takesystem/BaseOverride/index.md): An Override holds the settings for a specific object in a Take.
+    - [c4d.modules.takesystem.BaseOverrideGroup](../modules/c4d.modules/takesystem/BaseOverrideGroup/index.md): An Override Group manages the values of multiple objects in a Take.
+    - [c4d.modules.takesystem.BaseTake](../modules/c4d.modules/takesystem/BaseTake/index.md)
+    - [c4d.modules.takesystem.TakeData](../modules/c4d.modules/takesystem/TakeData/index.md)
+  - [c4d.modules.thinkingparticles](../modules/c4d.modules/thinkingparticles/index.md)
+    - [c4d.modules.thinkingparticles.TP_MasterSystem](../modules/c4d.modules/thinkingparticles/TP_MasterSystem/index.md)
+    - [c4d.modules.thinkingparticles.TP_PGroup](../modules/c4d.modules/thinkingparticles/TP_PGroup/index.md): Represents a Thinking Particle group.
+  - [c4d.modules.tokensystem](../modules/c4d.modules/tokensystem/index.md): The token system allows the use of expressions in file names.
+  - [c4d.modules.volume](../modules/c4d.modules/volume/index.md)
+    - [c4d.modules.volume.VolumeBuilder](../modules/c4d.modules/volume/VolumeBuilder/index.md): The volume builder object class of type Ovolumebuilder.
+    - [c4d.modules.volume.VolumeObject](../modules/c4d.modules/volume/VolumeObject/index.md): The volume object class of type Ovolume.
+- [c4d.plugins](../modules/c4d.plugins/index.md): Provides classes to implement and functions to register plugins.
+  - [c4d.plugins.BaseData](../modules/c4d.plugins/BaseData/index.md): An empty base class for all plugin types.
+    - [c4d.plugins.BitmapLoaderData](../modules/c4d.plugins/BaseData/BitmapLoaderData/index.md)
+    - [c4d.plugins.BitmapSaverData](../modules/c4d.plugins/BaseData/BitmapSaverData/index.md)
+    - [c4d.plugins.CommandData](../modules/c4d.plugins/BaseData/CommandData/index.md)
+    - [c4d.plugins.FalloffData](../modules/c4d.plugins/BaseData/FalloffData/index.md): This class is the base falloff class.
+    - [c4d.plugins.MessageData](../modules/c4d.plugins/BaseData/MessageData/index.md): Here is an example of a message plugin, which CoreMessage() method is called each 100 ms.
+    - [c4d.plugins.NodeData](../modules/c4d.plugins/BaseData/NodeData/index.md)
+      - [c4d.plugins.ObjectData](../modules/c4d.plugins/BaseData/NodeData/ObjectData/index.md): An object plugin class to be registered with RegisterObjectPlugin().
+      - [c4d.plugins.PreferenceData](../modules/c4d.plugins/BaseData/NodeData/PreferenceData/index.md)
+      - [c4d.plugins.SceneLoaderData](../modules/c4d.plugins/BaseData/NodeData/SceneLoaderData/index.md)
+      - [c4d.plugins.SceneSaverData](../modules/c4d.plugins/BaseData/NodeData/SceneSaverData/index.md)
+      - [c4d.plugins.ShaderData](../modules/c4d.plugins/BaseData/NodeData/ShaderData/index.md)
+      - [c4d.plugins.TagData](../modules/c4d.plugins/BaseData/NodeData/TagData/index.md)
+    - [c4d.plugins.SculptBrushToolData](../modules/c4d.plugins/BaseData/SculptBrushToolData/index.md): A data class for creating sculpt brushes.
+    - [c4d.plugins.ToolData](../modules/c4d.plugins/BaseData/ToolData/index.md): A data class for creating tool plugins.
+  - [c4d.plugins.BaseDrawHelp](../modules/c4d.plugins/BaseDrawHelp/index.md): Contains useful data for drawing objects into a BaseDraw view.
+  - [c4d.plugins.BasePlugin](../modules/c4d.plugins/BasePlugin/index.md): Represents a registered Cinema 4D plugin.
+  - [c4d.plugins.GeResource](../modules/c4d.plugins/GeResource/index.md): This class is used for accessing resource files on the hard drive, for example to load dialog resources or to access string tables.
+  - [c4d.plugins.HierarchyHelp](../modules/c4d.plugins/HierarchyHelp/index.md): Provides read-only context for virtual object hierarchy evaluation.
+  - [c4d.plugins.PriorityList](../modules/c4d.plugins/PriorityList/index.md): Stores execution priorities.
+- [c4d.storage](../modules/c4d.storage/index.md)
+  - [c4d.storage.HyperFile](../modules/c4d.storage/HyperFile/index.md)
+  - [c4d.storage.MemoryFileStruct](../modules/c4d.storage/MemoryFileStruct/index.md): This class is used to write to memory instead of to a file.
+- [c4d.threading](../modules/c4d.threading/index.md)
+  - [c4d.threading.BaseThread](../modules/c4d.threading/BaseThread/index.md): This is the main thread base class used internally by Cinema 4D.
+  - [c4d.threading.C4DThread](../modules/c4d.threading/C4DThread/index.md): Here you see a very simple example how to create code which runs in another thread.
+- [c4d.utils](../modules/c4d.utils/index.md)
+  - [c4d.utils.ConvexHullDecomposition](../modules/c4d.utils/ConvexHullDecomposition/index.md): Efficient way to generate a low polygon representation of a given object.
+  - [c4d.utils.GeRayCollider](../modules/c4d.utils/GeRayCollider/index.md): Evaluates intersections between a ray and a polygon object.
+  - [c4d.utils.KDTree](../modules/c4d.utils/KDTree/index.md): Provides an interface for efficient indexing and searching points in 2D or 3D space.
+  - [c4d.utils.KDTreeQuery](../modules/c4d.utils/KDTreeQuery/index.md)
+  - [c4d.utils.Neighbor](../modules/c4d.utils/Neighbor/index.md): Class to get neighbouring polygons from edges and points.
+  - [c4d.utils.PolygonReduction](../modules/c4d.utils/PolygonReduction/index.md): Performs polygon reduction for a polygon object.
+  - [c4d.utils.SplineHelp](../modules/c4d.utils/SplineHelp/index.md)
+  - [c4d.utils.SplineLengthData](../modules/c4d.utils/SplineLengthData/index.md)
+  - [c4d.utils.ViewportSelect](../modules/c4d.utils/ViewportSelect/index.md)
+  - [c4d.utils.noise](../modules/c4d.utils/noise/index.md)
+    - [c4d.utils.noise.C4DNoise](../modules/c4d.utils/noise/C4DNoise/index.md): An important technique for generating procedural textures is the use of fractal noise.
+  - [c4d.AliasTrans](../modules/c4d/AliasTrans/index.md): The alias translator takes care about reconnecting BaseLink links when cloning, copying, reading or writing objects.
+  - [c4d.BaseContainer](../modules/c4d/BaseContainer/index.md)
+  - [c4d.BaseSelect](../modules/c4d/BaseSelect/index.md)
+  - [c4d.BaseTime](../modules/c4d/BaseTime/index.md): A BaseTime represents a time value within Cinema 4d.
+  - [c4d.C4DAtom](../modules/c4d/C4DAtom/index.md): The base class of many other classes.
+    - [c4d.CKey](../modules/c4d/C4DAtom/CKey/index.md)
+    - [c4d.GeListNode](../modules/c4d/C4DAtom/GeListNode/index.md)
+      - [c4d.BaseList2D](../modules/c4d/C4DAtom/GeListNode/BaseList2D/index.md)
+        - [c4d.BaseMaterial](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseMaterial/index.md): This is the material base class that all materials in Cinema 4D are derived from.
+          - [c4d.Material](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseMaterial/Material/index.md): The material with the Mmaterial type.
+          - [c4d.NodeMaterial](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseMaterial/NodeMaterial/index.md)
+        - [c4d.BaseObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/index.md): The base class of objects.
+          - [c4d.CameraObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/CameraObject/index.md): Represents a Camera object.
+          - [c4d.InstanceObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/InstanceObject/index.md): The instance object class of type Oinstance.
+          - [c4d.LodObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/LodObject/index.md): Represents the LOD object.
+          - [c4d.PointObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/PointObject/index.md): This is an abstract baseclass.
+            - [c4d.LineObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/PointObject/LineObject/index.md): Represents a Line object.
+            - [c4d.ParticleGroupObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/PointObject/ParticleGroupObject/index.md): The particle group object.
+            - [c4d.PolygonObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/PointObject/PolygonObject/index.md): Represents a Polygon object.
+            - [c4d.SplineObject](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/PointObject/SplineObject/index.md): The instance object class of type Ospline.
+          - [c4d.VoronoiFracture](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/VoronoiFracture/index.md)
+        - [c4d.BaseShader](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseShader/index.md): Represents a shader in the shader tree of a channel.
+          - [c4d.LayerShader](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseShader/LayerShader/index.md): Represents a layer shader that can contain several layers of different types (shaders, folders, effects).
+        - [c4d.BaseTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/index.md)
+          - [c4d.HNWeightTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/HNWeightTag/index.md): Represents an SDS Weight Tag, which stores subdivision surface weighting data for points and polygon edges.
+          - [c4d.SelectionTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/SelectionTag/index.md)
+          - [c4d.TextureTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/TextureTag/index.md)
+          - [c4d.VariableTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/VariableTag/index.md): A tag class that can store multiple elements with variable data size.
+            - [c4d.NormalTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/VariableTag/NormalTag/index.md): Tag which handles normal buffers.
+            - [c4d.PointTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/VariableTag/PointTag/index.md): Tag which handles point buffers.
+            - [c4d.PolygonTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/VariableTag/PolygonTag/index.md): Tag which handles polygon buffers.
+            - [c4d.SegmentTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/VariableTag/SegmentTag/index.md): Tag which handles segment buffers.
+            - [c4d.TangentTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/VariableTag/TangentTag/index.md): Tag which handles tangent buffers.
+            - [c4d.UVWTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/VariableTag/UVWTag/index.md): The instance object class of type Tuvw.
+            - [c4d.VertexColorTag](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseTag/VariableTag/VertexColorTag/index.md): The instance object class of type Tvertexcolor.
+        - [c4d.BaseView](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseView/index.md): See the dbasedraw.h description file for container IDs.
+          - [c4d.BaseDraw](../modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseView/BaseDraw/index.md): This class represents a Cinema 4D window.
+        - [c4d.CCurve](../modules/c4d/C4DAtom/GeListNode/BaseList2D/CCurve/index.md)
+        - [c4d.CTrack](../modules/c4d/C4DAtom/GeListNode/BaseList2D/CTrack/index.md)
+      - [c4d.GeListHead](../modules/c4d/C4DAtom/GeListNode/GeListHead/index.md): Stores a list of GeListNode objects.
+  - [c4d.CPolygon](../modules/c4d/CPolygon/index.md)
+  - [c4d.CustomDataType](../modules/c4d/CustomDataType/index.md)
+    - [c4d.BitmapButtonStruct](../modules/c4d/CustomDataType/BitmapButtonStruct/index.md): Bitmap button data type (CUSTOMDATATYPE_BITMAPBUTTON) for BitmapButtonCustomGui.
+    - [c4d.DateTimeData](../modules/c4d/CustomDataType/DateTimeData/index.md): DateTime data type (DATETIME_DATA) for the DateTimeControl GUI.
+    - [c4d.FieldList](../modules/c4d/CustomDataType/FieldList/index.md): Field list data type (CUSTOMDATATYPE_FIELDLIST).
+    - [c4d.FontData](../modules/c4d/CustomDataType/FontData/index.md): Data type (FONTCHOOSER_DATA) for the font chooser GUI (FontChooserCustomGui).
+    - [c4d.Gradient](../modules/c4d/CustomDataType/Gradient/index.md): Gradient data type (CUSTOMDATATYPE_GRADIENT) for the GradientCustomGui GUI.
+    - [c4d.HyperLinkData](../modules/c4d/CustomDataType/HyperLinkData/index.md): Hyper link data (CUSTOMDATATYPE_HYPER_LINK_STATIC) for use with HyperLinkCustomGui.
+    - [c4d.InExcludeData](../modules/c4d/CustomDataType/InExcludeData/index.md): InExclude data type (CUSTOMDATATYPE_INEXCLUDE_LIST) for use with the InExcludeCustomGui GUI.
+    - [c4d.LayerSet](../modules/c4d/CustomDataType/LayerSet/index.md): This data type enables to access the layers of a bitmap shader.
+    - [c4d.LensGlowStruct](../modules/c4d/CustomDataType/LensGlowStruct/index.md): Lens glow data type (CUSTOMDATATYPE_LENSGLOW).
+    - [c4d.MatAssignData](../modules/c4d/CustomDataType/MatAssignData/index.md): Material assignment data type (CUSTOMDATATYPE_MATASSIGN).
+    - [c4d.PLAData](../modules/c4d/CustomDataType/PLAData/index.md): PLA data type (CUSTOMDATATYPE_PLA) for PLA tracks.
+    - [c4d.PriorityData](../modules/c4d/CustomDataType/PriorityData/index.md): Priority data type (CUSTOMGUI_PRIORITY_DATA).
+    - [c4d.RangeData](../modules/c4d/CustomDataType/RangeData/index.md): Range data type (CUSTOMDATATYPE_RANGE) for RangeCustomGui.
+    - [c4d.SoundEffectorData](../modules/c4d/CustomDataType/SoundEffectorData/index.md): Sound effector data type (CUSTOMDATATYPE_SOUNDEFFECTOR) for SoundEffectorCustomGui.
+    - [c4d.SplineData](../modules/c4d/CustomDataType/SplineData/index.md): Spline data type (CUSTOMDATATYPE_SPLINE) for the SplineCustomGui GUI
+    - [c4d.UnitScaleData](../modules/c4d/CustomDataType/UnitScaleData/index.md): Unit scale data type (CUSTOMDATATYPE_UNITSCALE).
+  - [c4d.CustomIconSettings](../modules/c4d/CustomIconSettings/index.md): Represents the data passed in the MSG_GETCUSTOMICON_SETTINGS.
+  - [c4d.DescID](../modules/c4d/DescID/index.md): An ID class for description elements.
+  - [c4d.DescLevel](../modules/c4d/DescLevel/index.md): Represents a level within a DescID.
+  - [c4d.Description](../modules/c4d/Description/index.md)
+  - [c4d.HandleInfo](../modules/c4d/HandleInfo/index.md)
+  - [c4d.IconData](../modules/c4d/IconData/index.md): Represents a single icon in a large bitmap array.
+  - [c4d.LayerShaderLayer](../modules/c4d/LayerShaderLayer/index.md): Represents a layer in a LayerShader.
+  - [c4d.Matrix](../modules/c4d/Matrix/index.md): A type to represent a transform.
+  - [c4d.Quaternion](../modules/c4d/Quaternion/index.md): Has methods for conversion to and from a rotation matrix: GetMatrix/SetMatrix/SetMatrixNorm.
+  - [c4d.ReflectionLayer](../modules/c4d/ReflectionLayer/index.md): Represents a layer in a c4d.Material.
+  - [c4d.Vector](../modules/c4d/Vector/index.md)
+  - [c4d.Vector4d](../modules/c4d/Vector4d/index.md)
+- [Cinema API](../modules/cinema_api.md)
+- [mxutils API](../modules/mxutils_api.md): Contains helper functions and types that are written in Python and exclusive to the Python API.

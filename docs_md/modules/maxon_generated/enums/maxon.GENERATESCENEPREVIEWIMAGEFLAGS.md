@@ -1,0 +1,19 @@
+<!-- Source: https://developers.maxon.net/docs/py/2027_0_0/modules/maxon_generated/enums/maxon.GENERATESCENEPREVIEWIMAGEFLAGS.html -->
+
+# maxon.GENERATESCENEPREVIEWIMAGEFLAGS <a id="maxon-generatescenepreviewimageflags"></a>
+
+## Description <a id="module-maxon.GENERATESCENEPREVIEWIMAGEFLAGS"></a><a id="description"></a>
+
+## Inheritance diagram <a id="inheritance-diagram"></a>
+
+## Attributes <a id="attributes"></a>
+
+|   |   |
+|---|---|
+| [`maxon.GENERATESCENEPREVIEWIMAGEFLAGS.AUTODETECT_RENDERENGINE`](maxon.GENERATESCENEPREVIEWIMAGEFLAGS.AUTODETECT_RENDERENGINE.md#maxon.GENERATESCENEPREVIEWIMAGEFLAGS.AUTODETECT_RENDERENGINE) | Detect render engine from document |
+| [`maxon.GENERATESCENEPREVIEWIMAGEFLAGS.BAKE_OCIO_VIEW_TRANSFORM`](maxon.GENERATESCENEPREVIEWIMAGEFLAGS.BAKE_OCIO_VIEW_TRANSFORM.md#maxon.GENERATESCENEPREVIEWIMAGEFLAGS.BAKE_OCIO_VIEW_TRANSFORM) | Render in raw render space and bake the OCIO view transform into the preview, so it matches the Picture Viewer render result. |
+| [`maxon.GENERATESCENEPREVIEWIMAGEFLAGS.FRAMESCENE`](maxon.GENERATESCENEPREVIEWIMAGEFLAGS.FRAMESCENE.md#maxon.GENERATESCENEPREVIEWIMAGEFLAGS.FRAMESCENE) | Frames the scene before rendering |
+| [`maxon.GENERATESCENEPREVIEWIMAGEFLAGS.GEOMETRYONLY`](maxon.GENERATESCENEPREVIEWIMAGEFLAGS.GEOMETRYONLY.md#maxon.GENERATESCENEPREVIEWIMAGEFLAGS.GEOMETRYONLY) | Apply geometry only rendering to the scene (in case of PREVIEWRENDER) |
+| [`maxon.GENERATESCENEPREVIEWIMAGEFLAGS.ISORIGINALDOCUMENT`](maxon.GENERATESCENEPREVIEWIMAGEFLAGS.ISORIGINALDOCUMENT.md#maxon.GENERATESCENEPREVIEWIMAGEFLAGS.ISORIGINALDOCUMENT) | if set the document will be cloned for rendering, otherwise the document will be used and modified directly. |
+| [`maxon.GENERATESCENEPREVIEWIMAGEFLAGS.NONE`](maxon.GENERATESCENEPREVIEWIMAGEFLAGS.NONE.md#maxon.GENERATESCENEPREVIEWIMAGEFLAGS.NONE) |  |
+| [`maxon.GENERATESCENEPREVIEWIMAGEFLAGS.PREVIEWRENDER`](maxon.GENERATESCENEPREVIEWIMAGEFLAGS.PREVIEWRENDER.md#maxon.GENERATESCENEPREVIEWIMAGEFLAGS.PREVIEWRENDER) | Use the preview renderer instead of the selected render engine |

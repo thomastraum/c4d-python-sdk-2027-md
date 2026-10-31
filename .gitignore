@@ -1,0 +1,6 @@
+# Original Sphinx HTML documentation; its Markdown conversion lives in docs_md/.
+/docs/
+/documentation.html
+
+__pycache__/
+*.pyc

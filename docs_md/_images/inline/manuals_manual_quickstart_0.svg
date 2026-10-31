@@ -1,0 +1,84 @@
+<svg id="sdk-tree" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="sdk-title sdk-desc" style="width:100%;height:auto;display:block">
+<title id="sdk-title">Cinema 4D Python SDK folder structure</title>
+<desc id="sdk-desc">A themed file browser. The SDK root contains agent guidance, documentation, runnable examples, an empty user-project folder, and workspace files.</desc>
+<style>
+#sdk-tree{color:var(--color-text,#4d4d4d);font-family:var(--font-family-sans,'Roboto',Arial,sans-serif);font-size:14px}
+#sdk-tree text{fill:currentColor}
+#sdk-tree .mono{font-family:var(--font-family-monospace,monospace)}
+#sdk-tree .muted{opacity:.72}
+#sdk-tree .line{fill:none;stroke:currentColor;stroke-opacity:.24;stroke-width:1.4}
+#sdk-tree .frame{fill:none;stroke:currentColor;stroke-opacity:.28;stroke-width:1.4}
+#sdk-tree .header{fill:currentColor;fill-opacity:.045}
+#sdk-tree .rootrow{fill:currentColor;fill-opacity:.055}
+#sdk-tree .folder{fill:currentColor;fill-opacity:.12;stroke:currentColor;stroke-opacity:.68;stroke-width:1.2}
+#sdk-tree .file{fill:currentColor;fill-opacity:.48;stroke:currentColor;stroke-opacity:.72;stroke-width:1.1}
+#sdk-tree .filefold{fill:none;stroke:currentColor;stroke-opacity:.72;stroke-width:1.1}
+</style>
+
+<rect class="frame" x="1" y="1" width="1198" height="618" rx="7"/>
+<path class="header" d="M8 1h1184a7 7 0 0 1 7 7v49H1V8a7 7 0 0 1 7-7Z"/>
+<path class="line" d="M1 57h1198"/>
+<circle cx="27" cy="29" r="5" fill="currentColor" fill-opacity=".65"/>
+<text x="43" y="35" font-size="17" font-weight="600">Cinema 4D Python SDK</text>
+<text x="1170" y="34" text-anchor="end" class="mono muted">sdk/</text>
+
+<text x="91" y="84" class="muted" font-size="12" font-weight="600">NAME</text>
+<text x="482" y="84" class="muted" font-size="12" font-weight="600">DESCRIPTION</text>
+<path class="line" d="M24 96h1152"/>
+
+<rect class="rootrow" x="24" y="104" width="1152" height="42" rx="4"/>
+<g transform="translate(37 114)">
+  <path class="folder" d="M1 4a2 2 0 0 1 2-2h7l3 3h11a2 2 0 0 1 2 2v13H1Z"/>
+  <path class="folder" d="M1 8h25l-2 11H3a2 2 0 0 1-2-2Z"/>
+</g>
+<text x="73" y="131" class="mono" font-weight="600">sdk/</text>
+<text x="482" y="131" class="muted">The SDK package root; its versioned folder name can vary.</text>
+
+<path class="line" d="M55 146v417M55 171h27M55 220h27M55 269h27M55 318h27M55 367h27M55 416h27M55 465h27M55 514h27M55 563h27"/>
+<g class="mono">
+  <g transform="translate(88 159)">
+    <path class="folder" d="M1 4a2 2 0 0 1 2-2h7l3 3h11a2 2 0 0 1 2 2v13H1Z"/><path class="folder" d="M1 8h25l-2 11H3a2 2 0 0 1-2-2Z"/>
+  </g>
+  <text x="123" y="180">.agents/</text><text x="482" y="180" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">Task guides, plugin scaffolds, API skills, and node-space metadata for agents.</text>
+
+  <g transform="translate(88 208)">
+    <path class="folder" d="M1 4a2 2 0 0 1 2-2h7l3 3h11a2 2 0 0 1 2 2v13H1Z"/><path class="folder" d="M1 8h25l-2 11H3a2 2 0 0 1-2-2Z"/>
+  </g>
+  <text x="123" y="229">docs/</text><text x="482" y="229" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">Standalone documentation for the Python SDK.</text>
+
+  <g transform="translate(88 257)">
+    <path class="folder" d="M1 4a2 2 0 0 1 2-2h7l3 3h11a2 2 0 0 1 2 2v13H1Z"/><path class="folder" d="M1 8h25l-2 11H3a2 2 0 0 1-2-2Z"/>
+  </g>
+  <text x="123" y="278">examples/</text><text x="482" y="278" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">Runnable examples by workflow; read and run them as references.</text>
+
+  <g transform="translate(88 306)">
+    <path class="folder" d="M1 4a2 2 0 0 1 2-2h7l3 3h11a2 2 0 0 1 2 2v13H1Z"/><path class="folder" d="M1 8h25l-2 11H3a2 2 0 0 1-2-2Z"/>
+  </g>
+  <text x="123" y="327">projects/</text><text x="482" y="327" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">Empty folder for user-owned scripts, plugins, and experiments.</text>
+
+  <g transform="translate(92 355)">
+    <path class="file" d="M2 1h13l5 5v20H2Z"/><path class="filefold" d="M15 1v6h5"/>
+  </g>
+  <text x="123" y="376">AGENTS.md</text><text x="482" y="376" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">SDK-wide rules, workflow entry points, and code conventions.</text>
+
+  <g transform="translate(92 404)">
+    <path class="file" d="M2 1h13l5 5v20H2Z"/><path class="filefold" d="M15 1v6h5"/>
+  </g>
+  <text x="123" y="425">README.md</text><text x="482" y="425" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">SDK overview and index of example categories.</text>
+
+  <g transform="translate(92 453)">
+    <path class="file" d="M2 1h13l5 5v20H2Z"/><path class="filefold" d="M15 1v6h5"/>
+  </g>
+  <text x="123" y="474">LICENSE.md</text><text x="482" y="474" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">SDK license information.</text>
+
+  <g transform="translate(92 502)">
+    <path class="file" d="M2 1h13l5 5v20H2Z"/><path class="filefold" d="M15 1v6h5"/>
+  </g>
+  <text x="123" y="523">documentation.html</text><text x="482" y="523" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">Entry page for opening the bundled documentation.</text>
+
+  <g transform="translate(92 551)">
+    <path class="file" d="M2 1h13l5 5v20H2Z"/><path class="filefold" d="M15 1v6h5"/>
+  </g>
+  <text x="123" y="572">sdk.code-workspace</text><text x="482" y="572" class="muted" font-family="var(--font-family-sans,'Roboto',Arial,sans-serif)">Workspace settings for Python analysis and Explorer/search filters.</text>
+</g>
+</svg>

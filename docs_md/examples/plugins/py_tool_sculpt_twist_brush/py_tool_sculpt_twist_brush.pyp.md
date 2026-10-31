@@ -1,0 +1,262 @@
+<!-- Source: https://developers.maxon.net/docs/py/2027_0_0/examples/plugins/py_tool_sculpt_twist_brush/py_tool_sculpt_twist_brush.pyp.html -->
+
+Local source: [examples/plugins/py_tool_sculpt_twist_brush/py_tool_sculpt_twist_brush.pyp](../../../../examples/plugins/py_tool_sculpt_twist_brush/py_tool_sculpt_twist_brush.pyp)
+
+# py_tool_sculpt_twist_brush <a id="py-tool-sculpt-twist-brush"></a>
+
+Demonstrates how to implement a brush tool that modifies a BaseObject by twisting all points under the brush.
+
+## DETAILS
+
+The brush finds points under the cursor and rotates them around the brush center, illustrating the SculptBrushToolData interaction flow.
+
+To run this example, place the file in the Cinema 4D plugins folder and restart Cinema 4D.
+
+Topics:
+
+- Finding points under a sculpt brush
+- Rotating points with a twist interaction
+
+## Files <a id="files"></a>
+
+### `py_tool_sculpt_twist_brush.pyp` <a id="py-tool-sculpt-twist-brush-pyp"></a>
+
+```python
+"""Demonstrates how to implement a brush tool that modifies a BaseObject by twisting all points under the brush.
+
+The brush finds points under the cursor and rotates them around the brush center, illustrating the SculptBrushToolData interaction flow.
+
+To run this example, place the file in the Cinema 4D plugins folder and restart Cinema 4D.
+
+Topics:
+    - Finding points under a sculpt brush
+    - Rotating points with a twist interaction
+"""
+__copyright__ = "Copyright 2026, MAXON Computer"
+__author__ = "Kent Barber"
+__date__ = "25/08/2026"
+__license__ = "Apache-2.0 license"
+__version__ = "16.0.0"
+
+import c4d
+
+# Be sure to use a unique ID obtained from developers.maxon.net
+PLUGIN_ID = 1031350
+
+# Values must match with the header file
+IDS_PYTHON_BRUSH_TWIST = 10000
+
+class SculptBrushTwistTool(c4d.plugins.SculptBrushToolData):
+    """Inherit from SculptBrushToolData to create your own sculpting tool."""
+
+    def GetToolPluginId(self):
+        """Called by Cinema 4D, to know the plugin ID of this tool.
+
+        Returns:
+            int: The unique id for the tool plugin as obtained from developers.maxon.net
+        """
+        return PLUGIN_ID
+
+    def GetResourceSymbol(self):
+        """Called by Cinema 4D, to know the resource to be used for this tool.
+
+        Returns:
+            str: The resource name of the tool
+        """
+        return "pythontwistbrush"
+
+    def OverwriteLoadedPresetSettings(self, data):
+        """Called by Cinema 4D, after a preset has been loaded.
+
+        Args:
+            data (c4d.BaseContainer): The settings for the loaded brush.
+        """
+        data[c4d.MDATA_SCULPTBRUSH_STAMP_FOLLOW] = False
+
+    def ApplyDab(self, dab):
+        """Called by Cinema 4D, to modify the sculpt object.
+
+        Implement the brush functionality in this method.
+
+        Args:
+            dab (c4d.modules.sculpting.BrushDabData): The brush dab data.
+        """
+        # Retrieves the Polygon Object
+        poly = dab.GetPolygonObject()
+        if poly is None:
+            return False
+
+        # Retrieves the world matrix for the model
+        mat = poly.GetMg()
+
+        # Retrieves the location of the hit point on the model in world coordinates
+        hitPointWorld = mat * dab.GetHitPoint()
+
+        # Predict movement amplitude
+        twistGrabMoveAmnt = (dab.GetMousePos3D() - hitPointWorld)
+        mat.off = c4d.Vector(0, 0, 0)
+        twistGrabMoveAmnt = ~mat * twistGrabMoveAmnt
+
+        # TwistGrab along the normal
+        normal = dab.GetNormal()
+        dot = normal.Dot(twistGrabMoveAmnt)
+        twistGrabMoveAmnt = normal * twistGrabMoveAmnt.GetLength()
+        if dot < 0:
+            twistGrabMoveAmnt *= -1
+
+        # Retrieves the averages points position and normal
+        pointAndNormal = dab.GetAveragePointAndNormal()
+
+        # Calculates the rotation, by looking at the mouse movement, since now and initial position
+        hitScreenSpace = dab.GetBaseDraw().WS(hitPointWorld)
+        currentDrawLocation = dab.GetBaseDraw().WS(dab.GetMousePos3D())
+        xVal = currentDrawLocation.x - hitScreenSpace.x
+        rotation = c4d.utils.Rad(xVal)
+
+        # Loops over very point for this dab and move it if we need to.
+        pointCount = dab.GetPointCount()
+        mirrored = dab.IsMirroredDab()
+        for a in range(0, pointCount):
+            # Retrieves the index of the point on the PolygonObject.
+            pointData = dab.GetPointData(a)
+            pointIndex = pointData["pointIndex"]
+
+            # Retrieves the falloff for this point. This will always be a value from 0 to 1.
+            # The value returned is a combination of the following values all multiplied together to give a final value.
+            # - The falloff curve.
+            # - The color of the stamp with its color value averaged to gray and adjusted by the Gray Value.
+            # - The color of the stencil with its color value averaged to gray and adjusted by the Gray Value.
+            fallOff = dab.GetBrushFalloff(a)
+
+            # If the falloff value is 0 then we don't have to do anything at all.
+            if fallOff == 0:
+                continue
+
+            # Retrieves the original points on the surface of the object. These points are the state of the object when the
+            # user first clicks on the model to do a mouse stroke. This allows you to compare where the points are during
+            # a stroke, since you have moved them, when the original positions.
+            original = dab.GetOriginalPoint(pointIndex)
+
+            # Retrieves the vector of the point we are going to change.
+            currentPoint = dab.GetPoint(pointIndex)
+
+            rotationMatrix = c4d.utils.RotAxisToMatrix(pointAndNormal["normal"], rotation * fallOff)
+
+            # If the point has been touched and we are in mirror mode then do something special
+            if mirrored and dab.IsPointModified(pointIndex):
+                newPosition = currentPoint - hitPointWorld
+                newPosition = rotationMatrix * newPosition
+                newPosition += hitPointWorld
+                newOffset = newPosition - currentPoint
+                dab.OffsetPoint(pointIndex, newOffset)
+            else:
+                newPosition = original - hitPointWorld
+                newPosition = rotationMatrix * newPosition
+                newPosition += hitPointWorld
+                offset = newPosition - currentPoint
+                dab.OffsetPoint(pointIndex, offset)
+
+        # Notifies that point were changed
+        dab.DirtyAllPoints(c4d.SCULPTBRUSHDATATYPE_POINT)
+        return True
+
+if __name__ == "__main__":
+    # Defines global parameter for the brush (how the brush should act)
+    params = c4d.modules.sculpting.SculptBrushParams()
+    params.EnableStencil(False)
+    params.EnableStamp(False)
+    params.SetBrushMode(c4d.SCULPTBRUSHMODE_GRAB)
+    params.SetUndoType(c4d.SCULPTBRUSHDATATYPE_POINT)
+
+    # Registers the sculpt brush plugin. PLUGINFLAG_HIDEPLUGINMENU hides the natural menu entry of
+    # this plugin. Omit this flag or replace it by 0 when you do not have custom menu handling as
+    # the SDK has (see py_menu).
+    c4d.plugins.RegisterSculptBrushPlugin(id=PLUGIN_ID,
+                                          str="Py SDK - Twist Brush",
+                                          info=c4d.PLUGINFLAG_HIDEPLUGINMENU, 
+                                          icon=None,
+                                          help="Python Twist Brush",
+                                          sculptparams=params,
+                                          dat=SculptBrushTwistTool())
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_tool_sculpt_twist_brush/py_tool_sculpt_twist_brush.pyp)
+
+### `res/c4d_symbols.h` <a id="res-c4d-symbols-h"></a>
+
+```cpp
+#ifndef C4D_SYMBOLS_H__
+#define C4D_SYMBOLS_H__
+
+enum
+{
+    // string table definitions
+    IDS_PYTHON_BRUSH_TWIST =  10000,
+    IDS_PYTHON_BRUSH_TWIST_HELP,
+
+// End of symbol definition
+    _DUMMY_ELEMENT_
+};
+
+#endif	// C4D_SYMBOLS_H__
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_tool_sculpt_twist_brush/res/c4d_symbols.h)
+
+### `res/description/pythontwistbrush.h` <a id="res-description-pythontwistbrush-h"></a>
+
+```cpp
+#ifndef PYTHONTWISTBRUSH_H__
+#define PYTHONTWISTBRUSH_H__
+
+enum
+{
+    PythonTwistBrush_Start = 20000,
+};
+
+#endif	// PYTHONTWISTBRUSH_H__
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_tool_sculpt_twist_brush/res/description/pythontwistbrush.h)
+
+### `res/description/pythontwistbrush.res` <a id="res-description-pythontwistbrush-res"></a>
+
+```c4dres
+CONTAINER pythontwistbrush
+{
+    NAME pythontwistbrush;
+    INCLUDE toolsculptbrushbase;
+ 
+    HIDE MDATA_SCULPTBRUSH_SETTINGS_DRAWMODE;
+    HIDE MDATA_SCULPTBRUSH_SETTINGS_DRAWMODE_FILL_SYMMETRY;
+    HIDE MDATA_SCULPTBRUSH_SETTINGS_FILL_BACKFACES;
+}
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_tool_sculpt_twist_brush/res/description/pythontwistbrush.res)
+
+### `res/strings_us/c4d_strings.str` <a id="res-strings-us-c4d-strings-str"></a>
+
+```c4dstr
+// C4D-StringResource
+// Identifier	Text
+
+STRINGTABLE
+{
+    IDS_PYTHON_BRUSH_TWIST		"Python Twist";
+    IDS_PYTHON_BRUSH_TWIST_HELP	"Rotate the surface around the normal";
+}
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_tool_sculpt_twist_brush/res/strings_us/c4d_strings.str)
+
+### `res/strings_us/description/pythontwistbrush.str` <a id="res-strings-us-description-pythontwistbrush-str"></a>
+
+```c4dstr
+STRINGTABLE PythonTwistBrush
+{
+    PythonTwistBrush		"Python Twist Brush";
+}
+```
+
+[Example on GitHub](https://github.com/Maxon-Computer/Cinema-4D-Python-API-Examples/tree/master/examples/plugins/py_tool_sculpt_twist_brush/res/strings_us/description/pythontwistbrush.str)

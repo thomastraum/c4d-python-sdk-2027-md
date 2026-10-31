@@ -1,0 +1,13 @@
+<!-- Source: https://developers.maxon.net/docs/py/2027_0_0/consts/BACKGROUNDHANDLERFLAGS.html -->
+
+# BACKGROUNDHANDLERFLAGS <a id="backgroundhandlerflags"></a>
+
+|   |   |
+|---|---|
+| *BACKGROUNDHANDLERFLAGS_NONE* | None. |
+| *BACKGROUNDHANDLERFLAGS_VIEWREDRAW* | View redraw. |
+| *BACKGROUNDHANDLERFLAGS_EDITORRENDDER* | Editor render. |
+| *BACKGROUNDHANDLERFLAGS_MATERIALPREVIEW* | Material preview. |
+| *BACKGROUNDHANDLERFLAGS_RENDEREXTERNAL* | Render external. |
+| *BACKGROUNDHANDLERFLAGS_PRIVATE_VIEWREDRAW* | Private. |
+| *BACKGROUNDHANDLERFLAGS_SHUTDOWN* | Shutdown. |
